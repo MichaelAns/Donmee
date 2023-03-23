@@ -1,6 +1,4 @@
-﻿using Frontend.Persistance.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Frontend.Persistance.EntityConfigurations
 {
