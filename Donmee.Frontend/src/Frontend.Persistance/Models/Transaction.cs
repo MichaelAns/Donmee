@@ -2,11 +2,14 @@
 
 namespace Frontend.Persistance.Models
 {
-    internal class Transaction
+    public class Transaction
     {
         public Guid Id { get; set; }        
         public TransactionType TransactionType { get; set; }
         public DateTime Date { get; set; }
         public int Count { get; set; }
+
+        public virtual User User { get; set; }
+        public virtual Wish? Wish { get; set; }
     }
 }

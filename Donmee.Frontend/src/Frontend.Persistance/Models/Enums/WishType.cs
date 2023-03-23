@@ -6,7 +6,7 @@
     public enum WishType
     {
         /// <summary>
-        /// Common wishe
+        /// Common wish
         /// </summary>
         Common,
 
@@ -14,7 +14,7 @@
         /// Wish, that has some features:
         /// </summary>
         /// <remarks>
-        /// - donate only one unit of money
+        /// - donate only fixed unit of money <br/>
         /// - creates for one day 
         /// </remarks>
         Blitz

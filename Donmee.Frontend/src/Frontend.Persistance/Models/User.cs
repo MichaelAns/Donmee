@@ -11,5 +11,7 @@
         public double Balance { get; set; }
         public double Bonus { get; set; }
 
+
+        public virtual IEnumerable<Transaction>? Transactions { get; set; }
     }
 }
