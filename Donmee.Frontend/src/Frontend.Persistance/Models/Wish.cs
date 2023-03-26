@@ -1,4 +1,6 @@
-﻿namespace Frontend.Persistance.Models
+﻿using Frontend.Persistance.Models.Enums;
+
+namespace Frontend.Persistance.Models
 {
 
     public class Wish
@@ -10,6 +12,7 @@
 
         // Is this necessary?
         public int CurrentAmount { get; set; }
+        public WishType WishType { get; set; }
 
         public DateTime EndDate { get; set; }
 

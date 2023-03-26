@@ -1,81 +1,92 @@
-﻿using Frontend.Persistance;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Internal;
 using System.Linq.Expressions;
 
 namespace Frontend.Repository
 {
     public class FrontendRepository<T> 
-        : IRepository<T>
+        : IRepository<T>, IDisposable
         where T : class
     {
+        public FrontendRepository(DbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
-        private DonmeeDbContext _dbContext;
+        private readonly DbContext _dbContext;
+
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            using (_dbContext = new())
-            {
-                IEnumerable<T> values = await _dbContext.Set<T>().ToListAsync();
-                return values;
-            }
+            var something = _dbContext.Set<T>().Count();
+            IEnumerable<T> values = await _dbContext.Set<T>().ToListAsync();
+            return values;
         }
 
         public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate)
         {
-            using (_dbContext = new())
-            {
-                IEnumerable<T> values = await _dbContext.Set<T>().Where(predicate).ToListAsync();
-                return values;
-            }
+            IEnumerable<T> values = await _dbContext.Set<T>().Where(predicate).ToListAsync();
+            return values;
         }
 
         public async Task<T> Get(Expression<Func<T, bool>> predicate)
         {
-            using (_dbContext = new())
+            T value = await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
+            if (value != null)
             {
-                T value = await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
-                if (value != null)
-                {
-                    return value;
-                }
-                else
-                {
-                    return null;
-                }
+                return value;
+            }
+            else
+            {
+                return null;
             }
         }
 
         public async Task<T> Create(T entity)
         {
-            using (_dbContext = new())
-            {
-                EntityEntry<T> createdEntity = await _dbContext.AddAsync(entity);
-                await _dbContext.SaveChangesAsync();
-                return createdEntity.Entity;
-            }
+            EntityEntry<T> createdEntity = await _dbContext.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+            return createdEntity.Entity;
+        }
+
+        public async Task Create(params T[] entities)
+        {
+            await _dbContext.AddRangeAsync(entities);
         }
 
         public async Task<bool> Delete(Expression<Func<T, bool>> predicate)
         {
-            using (_dbContext = new())
-            {
-                T entity = await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
-                _dbContext.Set<T>().Remove(entity);
-                await _dbContext.SaveChangesAsync();
-                return true;
-            }
+            T entity = await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
 
         public async Task<T> Update(T entity)
         {
-            using (_dbContext = new())
+            _dbContext.Set<T>().Update(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
             {
-                _dbContext.Set<T>().Update(entity);
-                await _dbContext.SaveChangesAsync();
-                return entity;
+                if (disposing)
+                {
+                    _dbContext.Dispose();
+                }
             }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
