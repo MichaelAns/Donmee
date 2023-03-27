@@ -14,7 +14,7 @@ namespace FrontendRepositoryUnitTests.Donmee.Repository
             var result = await repository.GetAll();
 
             // Assert
-            //result.ShouldBeOfType<IEnumerable<User>>();
+            result.ShouldBeOfType<List<User>>();
             result.Count().ShouldBe(3);
         }
     }

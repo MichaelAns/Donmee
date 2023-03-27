@@ -1,7 +1,5 @@
-﻿using Frontend.Persistance;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Design;
 using System.Linq.Expressions;
 
 namespace Frontend.Repository

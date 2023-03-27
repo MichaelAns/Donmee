@@ -1,9 +1,8 @@
-﻿using Frontend.Repository;
+﻿using Shouldly;
 
-namespace FrontendRepositoryUnitTests.Common
+namespace FrontendRepositoryUnitTests.Donmee.Database
 {
-    public class DonmeeRepositoryFactory<T>
-        where T : class
+    public class CreateDbContextTests
     {
         public static Guid UserId_1 = Guid.NewGuid();
         public static Guid UserId_2 = Guid.NewGuid();
@@ -17,19 +16,28 @@ namespace FrontendRepositoryUnitTests.Common
         public static Guid Wish_2 = Guid.NewGuid();
         public static Guid Wish_3 = Guid.NewGuid();
 
-        public static DonmeeRepository<T> Create()
+        [Fact]
+        public async Task CreateDbContext()
         {
+            // Arrange
             var context = new DonmeeTestDbContextFactory().CreateDbContext();
+
+            // Act
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             AddRange(context);
+
             context.SaveChanges();
 
-            return new DonmeeRepository<T>(context);
+            // Assert
+            Assert.NotNull(
+                context.Transaction.ToListAsync()
+                );
+            context.Transaction.ToListAsync().Result.Count().ShouldBe(8);
         }
 
-        private static void AddRange(DbContext dbContext)
+        private void AddRange(DbContext dbContext)
         {
             dbContext.Set<User>().AddRange(
                 new User
@@ -60,7 +68,7 @@ namespace FrontendRepositoryUnitTests.Common
                 });
 
             dbContext.Set<Wish>().AddRange(
-                new Wish
+            new Wish
                 {
                     Id = Wish_1,
                     Name = "Телефон",
@@ -70,7 +78,7 @@ namespace FrontendRepositoryUnitTests.Common
                     WishType = Frontend.Persistance.Models.Enums.WishType.Common,
                     Goal = 10000
                 },
-                new Wish
+            new Wish
                 {
                     Id = Wish_2,
                     Name = "Ноутбук",
@@ -80,8 +88,8 @@ namespace FrontendRepositoryUnitTests.Common
                     WishType = Frontend.Persistance.Models.Enums.WishType.Common,
                     Goal = 10000
                 },
-                new Wish
-                {
+            new Wish
+            {
                     Id = Wish_3,
                     Name = "Энергетик Black Monster",
                     CurrentAmount = 50,
@@ -90,7 +98,7 @@ namespace FrontendRepositoryUnitTests.Common
                     Goal = 100
                 });
 
-            /*dbContext.Set<Transaction>().AddRange(
+            dbContext.Set<Transaction>().AddRange(
                 new Transaction
                 {
                     Id = Transaction_1,
@@ -112,7 +120,7 @@ namespace FrontendRepositoryUnitTests.Common
                     Id = Transaction_3,
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Creating,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_1),
-                    Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),                    
+                    Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),
                 },
                 new Transaction
                 {
@@ -146,7 +154,7 @@ namespace FrontendRepositoryUnitTests.Common
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_3),
                     Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),
                     Count = 100
-                });*/
+                });
         }
     }
 }
