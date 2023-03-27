@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Frontend.Persistance.Models.Enums;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Frontend.Persistance.EntityConfigurations
 {
@@ -14,6 +15,8 @@ namespace Frontend.Persistance.EntityConfigurations
                 .HasMaxLength(50);
             builder.Property(wish => wish.Description)
                 .HasMaxLength(500);
+            builder.Property(wish => wish.WishStatus)
+                .HasMaxLength((int) WishStatus.Active);
         }
     }
 }
