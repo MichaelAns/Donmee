@@ -90,12 +90,13 @@ namespace FrontendRepositoryUnitTests.Common
                     Goal = 100
                 });
 
-            /*dbContext.Set<Transaction>().AddRange(
+            dbContext.Set<Transaction>().AddRange(
                 new Transaction
                 {
                     Id = Transaction_1,
                     Count = 100,
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Replenishment,
+                    UserId = UserId_1,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_1),
                     Wish = null
                 },
@@ -104,6 +105,7 @@ namespace FrontendRepositoryUnitTests.Common
                     Id = Transaction_2,
                     Count = 100,
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Replenishment,
+                    UserId = UserId_2,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_2),
                     Wish = null
                 },
@@ -111,42 +113,54 @@ namespace FrontendRepositoryUnitTests.Common
                 {
                     Id = Transaction_3,
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Creating,
+                    UserId = UserId_1,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_1),
-                    Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),                    
-                },
-                new Transaction
-                {
-                    TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Creating,
-                    User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_2),
+                    WishId = Wish_1,
                     Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),
                 },
                 new Transaction
                 {
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Creating,
+                    UserId = UserId_2,
+                    User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_2),
+                    WishId = Wish_1,
+                    Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),
+                },
+                new Transaction
+                {
+                    TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Creating,
+                    UserId = UserId_3,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_3),
+                    WishId = Wish_3,
                     Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_3),
                 },
                 new Transaction
                 {
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Donate,
+                    UserId = UserId_1,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_1),
+                    WishId = Wish_2,
                     Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_2),
                     Count = 100
                 },
                 new Transaction
                 {
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Donate,
+                    UserId = UserId_2,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_2),
+                    WishId = Wish_3,
                     Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_3),
                     Count = 50
                 },
                 new Transaction
                 {
                     TransactionType = Frontend.Persistance.Models.Enums.TransactionType.Donate,
+                    UserId = UserId_3,
                     User = dbContext.Set<User>().FirstOrDefault(user => user.Id == UserId_3),
+                    WishId = Wish_1,
                     Wish = dbContext.Set<Wish>().FirstOrDefault(wish => wish.Id == Wish_1),
                     Count = 100
-                });*/
+                });
         }
     }
 }
