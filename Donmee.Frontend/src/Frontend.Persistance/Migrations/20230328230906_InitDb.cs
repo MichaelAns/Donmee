@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Frontend.Persistance.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,6 +38,8 @@ namespace Frontend.Persistance.Migrations
                     Description = table.Column<string>(type: "TEXT", maxLength: 500, nullable: true),
                     Goal = table.Column<int>(type: "INTEGER", nullable: false),
                     CurrentAmount = table.Column<int>(type: "INTEGER", nullable: false),
+                    WishType = table.Column<int>(type: "INTEGER", nullable: false),
+                    WishStatus = table.Column<int>(type: "INTEGER", nullable: false, defaultValue: 0),
                     EndDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -51,7 +53,7 @@ namespace Frontend.Persistance.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     TransactionType = table.Column<int>(type: "INTEGER", nullable: false),
-                    Date = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "date('now')"),
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValue: new DateTime(2023, 3, 29, 2, 9, 6, 197, DateTimeKind.Local).AddTicks(112)),
                     Count = table.Column<int>(type: "INTEGER", nullable: false, defaultValue: 1),
                     UserId = table.Column<Guid>(type: "TEXT", nullable: false),
                     WishId = table.Column<Guid>(type: "TEXT", nullable: true)
@@ -69,7 +71,8 @@ namespace Frontend.Persistance.Migrations
                         name: "FK_Transaction_Wish_WishId",
                         column: x => x.WishId,
                         principalTable: "Wish",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

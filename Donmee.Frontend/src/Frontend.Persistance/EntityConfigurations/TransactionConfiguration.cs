@@ -21,11 +21,13 @@ namespace Frontend.Persistance.EntityConfigurations
             builder
                 .HasOne(transaction => transaction.User)
                 .WithMany(user => user.Transactions)
+                .HasForeignKey("UserId")
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
             builder
                 .HasOne(transaction => transaction.Wish)
                 .WithMany(wish => wish.Transactions)
+                .HasForeignKey("WishId")
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired(false);
         }

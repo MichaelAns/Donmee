@@ -16,7 +16,7 @@ namespace Frontend.Persistance.EntityConfigurations
             builder.Property(wish => wish.Description)
                 .HasMaxLength(500);
             builder.Property(wish => wish.WishStatus)
-                .HasMaxLength((int) WishStatus.Active);
+                .HasDefaultValue(WishStatus.Active);
         }
     }
 }
