@@ -1,5 +1,4 @@
 ﻿using Frontend.Persistance.EntityConfigurations;
-using Microsoft.EntityFrameworkCore;
 
 namespace Frontend.Persistance
 {
@@ -18,11 +17,5 @@ namespace Frontend.Persistance
             builder.ApplyConfiguration(new WishConfiguration());
             builder.ApplyConfiguration(new TransactionConfiguration());
         }
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-
-            string testPath = @"C:\Users\Borov\source\repos\Donmee\Donmee.Frontend\src\Frontend.Persistance\database.db";
-            optionsBuilder.UseSqlite($"Filename={testPath}");
-        }*/ 
     }
 }

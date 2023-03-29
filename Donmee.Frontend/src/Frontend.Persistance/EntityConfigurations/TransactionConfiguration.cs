@@ -11,7 +11,7 @@ namespace Frontend.Persistance.EntityConfigurations
                 .IsUnique();
 
             builder.Property(transaction => transaction.Date)
-                .HasDefaultValueSql("date('now')");
+                .HasDefaultValue(DateTime.Now);
 
             // When TransactionType is Replenishment
             builder.Property(transaction => transaction.Count)
@@ -20,10 +20,16 @@ namespace Frontend.Persistance.EntityConfigurations
             // Relationships
             builder
                 .HasOne(transaction => transaction.User)
-                .WithMany(user => user.Transactions);
+                .WithMany(user => user.Transactions)
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
             builder
                 .HasOne(transaction => transaction.Wish)
-                .WithMany(wish => wish.Transactions);
+                .WithMany(wish => wish.Transactions)
+                .HasForeignKey("WishId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired(false);
         }
     }
 }

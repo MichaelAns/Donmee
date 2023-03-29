@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Frontend.Persistance.Migrations
 {
     [DbContext(typeof(DonmeeDbContext))]
-    [Migration("20230323223320_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230328230906_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace Frontend.Persistance.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValueSql("date('now')");
+                        .HasDefaultValue(new DateTime(2023, 3, 29, 2, 9, 6, 197, DateTimeKind.Local).AddTicks(112));
 
                     b.Property<int>("TransactionType")
                         .HasColumnType("INTEGER");
@@ -127,6 +127,14 @@ namespace Frontend.Persistance.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("WishStatus")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("WishType")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Id")
@@ -145,7 +153,8 @@ namespace Frontend.Persistance.Migrations
 
                     b.HasOne("Frontend.Persistance.Models.Wish", "Wish")
                         .WithMany("Transactions")
-                        .HasForeignKey("WishId");
+                        .HasForeignKey("WishId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
 

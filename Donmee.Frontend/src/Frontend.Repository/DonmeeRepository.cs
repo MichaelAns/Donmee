@@ -4,21 +4,21 @@ using System.Linq.Expressions;
 
 namespace Frontend.Repository
 {
-    public class FrontendRepository<T> 
+    public class DonmeeRepository<T> 
         : IRepository<T>, IDisposable
         where T : class
     {
-        public FrontendRepository(DbContext dbContext)
+        public DonmeeRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        private readonly DbContext _dbContext;
+        private DbContext _dbContext;
 
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            var something = _dbContext.Set<T>().Count();
+            var something = _dbContext.Set<T>();
             IEnumerable<T> values = await _dbContext.Set<T>().ToListAsync();
             return values;
         }

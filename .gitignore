@@ -348,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/Donmee.Frontend/src/Frontend.Persistance/database.db-shm
+/Donmee.Frontend/src/Frontend.Persistance/database.db-wal
+/Donmee.Frontend/src/FrontendRepositoryUnitTests/Test.db
+/Donmee.Frontend/src/FrontendRepositoryUnitTests/Test.db-shm
+/Donmee.Frontend/src/FrontendRepositoryUnitTests/Test.db-wal
