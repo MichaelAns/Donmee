@@ -6,9 +6,25 @@
     xmlns:views="clr-namespace:Donmee.Client.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:LoginView}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Other's"
+             Route="Wishes">
+            <ShellContent Title="Common"
+                          Route="CommonWishes"
+                          ContentTemplate="{DataTemplate views:WishesView}"/>
+            <ShellContent Title="Blitz"
+                          Route="BlitzWishes"
+                          ContentTemplate="{DataTemplate views:LoginView}"/>
+        </Tab>
+        <Tab Title="My"
+             Route="MyWishes">
+            <ShellContent Title="Active"
+                          Route="ActiveWishes"
+                          ContentTemplate="{DataTemplate views:MyWishesView}"/>
+            <ShellContent Title="Completed"
+                          Route="CompletedWishes"
+                          ContentTemplate="{DataTemplate views:MyWishesView}"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

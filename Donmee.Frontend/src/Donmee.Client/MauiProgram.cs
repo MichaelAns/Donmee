@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Donmee.Client.Services.Navigation;
+using Microsoft.Extensions.Logging;
 
 namespace Donmee.Client;
 
@@ -14,6 +15,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		// Register dependencies to the container
+		builder.Services
+			.AddSingleton<INavigationService, MauiNavigationService>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

@@ -1,11 +1,17 @@
-﻿namespace Donmee.Client;
+﻿using Donmee.Client.Services.Navigation;
+
+namespace Donmee.Client;
 
 public partial class App : Application
 {
-	public App()
+	public App(
+		INavigationService navigationService)
 	{
-		InitializeComponent();
+		_navigationService = navigationService;
 
-		MainPage = new AppShell();
+		InitializeComponent();
+        MainPage = new AppShell(navigationService);
 	}
+
+	private readonly INavigationService _navigationService;
 }
