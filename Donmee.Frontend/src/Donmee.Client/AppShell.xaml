@@ -25,6 +25,15 @@
                           Route="CompletedWishes"
                           ContentTemplate="{DataTemplate views:MyWishesView}"/>
         </Tab>
+        <Tab Title="Options"
+             Route="Options">
+            <ShellContent Title="Profile"
+                          Route="Profile" 
+                          ContentTemplate="{DataTemplate views:ProfileView}"/>
+            <ShellContent Title="Settings"
+                          Route="Settings"
+                          ContentTemplate="{DataTemplate views:SettingsView}"/>
+        </Tab>
     </TabBar>
 
 </Shell>
