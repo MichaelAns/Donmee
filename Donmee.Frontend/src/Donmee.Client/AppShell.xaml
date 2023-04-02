@@ -6,18 +6,37 @@
     xmlns:views="clr-namespace:Donmee.Client.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <TabBar>
-        <Tab Title="Other's"
-             Route="Wishes">
-            <ShellContent Title="Common"
-                          Route="CommonWishes"
-                          ContentTemplate="{DataTemplate views:WishesView}"/>
-            <ShellContent Title="Blitz"
-                          Route="BlitzWishes"
-                          ContentTemplate="{DataTemplate views:LoginView}"/>
+    <FlyoutItem>
+        <Tab 
+            Title="Login">
+            <ShellContent
+                ContentTemplate="{DataTemplate views:LoginView}"
+                Route="Login"/>
         </Tab>
-        <Tab Title="My"
-             Route="MyWishes">
+        <Tab 
+            Title="Register">
+            <ShellContent
+                ContentTemplate="{DataTemplate views:RegisterView}"
+                Route="Register"/>
+        </Tab>
+    </FlyoutItem>
+    <TabBar
+        Route="Main">
+        <Tab 
+            Title="Other's"
+            Route="Wishes">
+            <ShellContent 
+                Title="Common"
+                Route="CommonWishes"
+                ContentTemplate="{DataTemplate views:WishesView}"/>
+            <ShellContent 
+                Title="Blitz"
+                Route="BlitzWishes"
+                ContentTemplate="{DataTemplate views:BlitzWishesView}"/>
+        </Tab>
+        <Tab 
+            Title="My"
+            Route="MyWishes">
             <ShellContent Title="Active"
                           Route="ActiveWishes"
                           ContentTemplate="{DataTemplate views:MyWishesView}"/>
@@ -25,8 +44,9 @@
                           Route="CompletedWishes"
                           ContentTemplate="{DataTemplate views:MyWishesView}"/>
         </Tab>
-        <Tab Title="Options"
-             Route="Options">
+        <Tab 
+            Title="Options"
+            Route="Options">
             <ShellContent Title="Profile"
                           Route="Profile" 
                           ContentTemplate="{DataTemplate views:ProfileView}"/>

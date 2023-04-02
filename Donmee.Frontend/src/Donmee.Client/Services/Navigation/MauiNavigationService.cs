@@ -2,7 +2,7 @@
 {
     public class MauiNavigationService : INavigationService
     {
-        public Task InitializeAsync() => NavigateToAsync("//Wishes/CommonWishes");        
+        public Task InitializeAsync() => NavigateToAsync("//Login");        
 
         public Task NavigateToAsync(
             string route, 

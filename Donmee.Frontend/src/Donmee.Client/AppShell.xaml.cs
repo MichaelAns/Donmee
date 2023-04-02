@@ -25,14 +25,10 @@ public partial class AppShell : Shell
         }
     }
 
-    // Register the un-TabBar routes
     private static void InitializeRouting()
     {
-        Routing.RegisterRoute("Login", typeof(LoginView));
-        Routing.RegisterRoute("SignUp", typeof(SignUpView));
         Routing.RegisterRoute("WishDetails", typeof(WishDetailsView));
         Routing.RegisterRoute("MyWishDetails", typeof(MyWishDetailsView));
-        Routing.RegisterRoute("SignUp", typeof(SignUpView));
     }
 
 
