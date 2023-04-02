@@ -1,4 +1,6 @@
 ﻿using Donmee.Client.Services.Navigation;
+using Donmee.Client.ViewModels;
+using Donmee.Client.Views;
 using Microsoft.Extensions.Logging;
 
 namespace Donmee.Client;
@@ -14,7 +16,9 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+			})
+			.RegisterViewModels()
+			.RegisterViews();
 
 		// Register dependencies to the container
 		builder.Services
@@ -26,4 +30,29 @@ public static class MauiProgram
 
 		return builder.Build();
 	}
+
+	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+	{
+		mauiAppBuilder.Services.AddTransient<LoginView>();
+		mauiAppBuilder.Services.AddTransient<RegisterView>();
+
+        mauiAppBuilder.Services.AddTransient<WishesView>();
+        mauiAppBuilder.Services.AddTransient<BlitzWishesView>();
+        mauiAppBuilder.Services.AddTransient<MyWishesView>();
+
+        mauiAppBuilder.Services.AddTransient<WishDetailsView>();
+        mauiAppBuilder.Services.AddTransient<MyWishDetailsView>();
+
+        mauiAppBuilder.Services.AddTransient<SettingsView>();
+        mauiAppBuilder.Services.AddTransient<ProfileView>();
+
+		return mauiAppBuilder;
+    }
+
+    public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+	{
+		mauiAppBuilder.Services.AddSingleton<LoginViewModel>();
+
+		return mauiAppBuilder;
+    }
 }
