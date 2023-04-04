@@ -9,7 +9,7 @@ namespace Frontend.Persistance
         {
             var optionsBuilder = new DbContextOptionsBuilder<DonmeeDbContext>();
             string testPath = @"C:\Users\Borov\source\repos\Donmee\Donmee.Frontend\src\Frontend.Persistance\database.db";
-            optionsBuilder.UseSqlite($"Filename={testPath}");
+            optionsBuilder.UseSqlite($"Filename = {testPath}");
             return new DonmeeDbContext(optionsBuilder.Options);
         }
     }

@@ -1,4 +1,5 @@
-﻿using Shouldly;
+﻿using Frontend.Persistance;
+using Shouldly;
 
 namespace FrontendRepositoryUnitTests.Donmee.Database
 {
@@ -156,5 +157,19 @@ namespace FrontendRepositoryUnitTests.Donmee.Database
                     Count = 100
                 });
         }
+
+        [Fact]
+        public async Task CreateRealDbContext()
+        {
+            DonmeeDbContext dbContext = new DonmeeDbContextFactory().CreateDbContext();
+            AddRange(dbContext);
+            dbContext.SaveChanges();
+
+            //Assert.NotEmpty(dbContext.Set<Wish>().ToList());
+            Assert.NotNull(dbContext);
+            dbContext.Set<Wish>().ToList().Count.ShouldBe(3);
+        }
     }
+
+    
 }

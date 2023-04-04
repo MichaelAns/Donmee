@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.RegisterView"
+             x:DataType="viewmodels:RegisterViewModel"
              Title="RegisterView">
     <VerticalStackLayout
         HorizontalOptions="Center"
@@ -39,6 +41,7 @@
             Text="Second name">
         </Entry>
         <Button 
-            Text="Register"/>
+            Text="Register"
+            Command="{Binding SignUpCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

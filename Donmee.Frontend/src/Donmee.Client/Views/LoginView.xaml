@@ -34,7 +34,7 @@
         </Entry>
         <!--LOGIN BUTTON-->
         <Button
-            Text="LOGIN"
+            Text="Login"
             Command="{Binding SignInCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
