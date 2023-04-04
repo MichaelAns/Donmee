@@ -1,9 +1,12 @@
+using Donmee.Client.ViewModels;
+
 namespace Donmee.Client.Views;
 
 public partial class WishDetailsView : ContentPage
 {
-	public WishDetailsView()
+	public WishDetailsView(WishDetailsViewModel viewModel)
 	{
+		BindingContext = viewModel;
 		InitializeComponent();
 	}
 }

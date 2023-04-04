@@ -24,7 +24,15 @@ public partial class AppShell : Shell
             await _navigationService.InitializeAsync();
         }
     }
+    protected override async void OnHandlerChanged()
+    {
+        base.OnHandlerChanged();
 
+        if (Handler is not null)
+        {
+            await _navigationService.InitializeAsync();
+        }
+    }
     private static void InitializeRouting()
     {
         Routing.RegisterRoute("WishDetails", typeof(WishDetailsView));

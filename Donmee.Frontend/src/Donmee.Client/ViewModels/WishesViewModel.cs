@@ -72,5 +72,19 @@ namespace Donmee.Client.ViewModels
 
         [ObservableProperty]
         private Wish _selectedWish;
+
+        [RelayCommand]
+        private async Task SelectWishAsync()
+        {
+            await NavigationService.NavigateToAsync(
+                    "/WishDetails",
+                    new Dictionary<string, object> 
+                    {
+                        {
+                                "WishDetails",
+                                SelectedWish
+                        } 
+                    });
+        }
     }
 }

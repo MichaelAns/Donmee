@@ -58,7 +58,8 @@ public static class MauiProgram
 	{
 		mauiAppBuilder.Services.AddSingleton<LoginViewModel>();
         mauiAppBuilder.Services.AddSingleton<RegisterViewModel>();
-        mauiAppBuilder.Services.AddSingleton<WishesViewModel>();
+        mauiAppBuilder.Services.AddTransient<WishesViewModel>();
+        mauiAppBuilder.Services.AddTransient<WishDetailsViewModel>();
 
         return mauiAppBuilder;
     }

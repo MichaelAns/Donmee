@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.WishDetailsView"
-             Title="WishDetailsView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             x:DataType="vm:WishDetailsViewModel"
+             Title="{Binding Wish.Name}">
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+        <Image
+            Source="dotnet_bot.svg"/>
+        <Label
+            Text="{Binding Wish.Name}"/>
+        <Label
+            Text="{Binding Wish.Description}"
+            />
+        <Label
+            Text="{Binding Wish.CurrentAmount}"/>
+        <Label
+            Text="{Binding Wish.Goal}"/>
+        <Label
+            Text="{Binding Wish.EndDate}"/>
     </VerticalStackLayout>
 </ContentPage>

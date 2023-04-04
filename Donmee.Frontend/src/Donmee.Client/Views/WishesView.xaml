@@ -10,7 +10,8 @@
         <CollectionView
             SelectionMode="Single"
             ItemsSource="{Binding Wishes, Mode=OneTime}"
-            SelectedItem="{Binding SelectedWish, Mode=TwoWay}">
+            SelectedItem="{Binding SelectedWish, Mode=TwoWay}"
+            SelectionChangedCommand="{Binding SelectWishCommand}">
             <!--TEMPLATE-->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
