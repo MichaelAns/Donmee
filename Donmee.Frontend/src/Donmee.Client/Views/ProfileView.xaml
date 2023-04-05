@@ -7,15 +7,30 @@
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label
-            Text="Login"/>
+            Text="Email address:"/>
         <Entry
-            Text="Login">
+            Text="Email">
         </Entry>
         <Label
-            Text="Password"/>
+            Text="Password:"/>
         <Entry
             IsPassword="True"
             Text="Password">
+        </Entry>
+        <Label
+            Text="Phone number:"/>
+        <Entry
+            Text="Phone number">
+        </Entry>
+        <Label
+            Text="Name:"/>
+        <Entry
+            Text="Name">
+        </Entry>
+        <Label
+            Text="Second name:"/>
+        <Entry
+            Text="Second name">
         </Entry>
         <!--BUTTONS-->
         <Button

@@ -25,7 +25,6 @@ namespace FrontendRepositoryUnitTests.Donmee.Repository
             var repository = DonmeeRepositoryFactory<Transaction>.Create();
 
             // Act
-
             var result = await repository.GetAll(tr =>
                 tr.UserId == DonmeeRepositoryFactory<Transaction>.UserId_1);
 
