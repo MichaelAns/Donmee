@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:temp="clr-namespace:Donmee.Client.Views.Templates"
+             xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.BlitzWishesView"
-             Title="BlitzWishesView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Blitz Wishes!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="vm:BlitzWishesViewModel"
+             Title="Blitz">
+    <Grid>
+        <CollectionView
+            SelectionMode="Single"
+            ItemsSource="{Binding Wishes, Mode=OneTime}">  
+            <!--TEMPLATE-->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <temp:BlitzWishTemplate/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

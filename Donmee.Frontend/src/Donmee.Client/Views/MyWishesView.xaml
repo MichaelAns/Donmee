@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:temp="clr-namespace:Donmee.Client.Views.Templates"
+             xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.MyWishesView"
-             Title="MyWishesView">
-    <VerticalStackLayout>
-        <Label 
-            Text="My wishes!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="vm:MyWishesViewModel"
+             Title="My wishes">
+    <Grid>
+        <CollectionView
+            SelectionMode="Single"
+            ItemsSource="{Binding Wishes, Mode=OneTime}"
+            SelectedItem="{Binding SelectedWish, Mode=TwoWay}"
+            SelectionChangedCommand="{Binding SelectWishCommand}">
+            <!--TEMPLATE-->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <temp:WishItemTemplate/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

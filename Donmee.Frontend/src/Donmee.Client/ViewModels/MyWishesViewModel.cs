@@ -1,19 +1,16 @@
 ﻿using Donmee.Client.Services.Navigation;
 using Donmee.Client.ViewModels.Base;
-using Frontend.Persistance;
 using Frontend.Persistance.Models;
-using Frontend.Repository;
 using System.Collections.ObjectModel;
 
 namespace Donmee.Client.ViewModels
 {
-    public partial class WishesViewModel : ViewModelBase
+    public partial class MyWishesViewModel : ViewModelBase
     {
-        public WishesViewModel(INavigationService navigationService) : base(navigationService)
+        public MyWishesViewModel(INavigationService navigationService) : base(navigationService)
         {
             GetWishes();
         }
-        
         private void GetWishes()
         {
             WishesInit().ContinueWith(task
@@ -52,16 +49,6 @@ namespace Donmee.Client.ViewModels
 
         [RelayCommand]
         private async Task SelectWishAsync()
-        {
-            await NavigationService.NavigateToAsync(
-                    "/WishDetails",
-                    new Dictionary<string, object> 
-                    {
-                        {
-                                "WishDetails",
-                                SelectedWish
-                        } 
-                    }); 
-        }
+        { }
     }
 }
