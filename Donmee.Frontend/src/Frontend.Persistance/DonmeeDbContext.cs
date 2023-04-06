@@ -8,7 +8,7 @@ namespace Frontend.Persistance
         public DonmeeDbContext(DbContextOptions options)
             : base(options) 
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
