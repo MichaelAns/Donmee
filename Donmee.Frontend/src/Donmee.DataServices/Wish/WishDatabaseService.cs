@@ -24,7 +24,8 @@ namespace Donmee.DataServices.Wish
                 // All wishes of other users
                 var wishes = await dbContext.Transaction
                     .Where(trans =>
-                        trans.UserId != userId)
+                        trans.UserId != userId &&
+                        trans.TransactionType == TransactionType.Creating)
                     .Select(tr => tr.Wish)
                     .Where(wish => wish.WishStatus == WishStatus.Active)
                     .ToListAsync();

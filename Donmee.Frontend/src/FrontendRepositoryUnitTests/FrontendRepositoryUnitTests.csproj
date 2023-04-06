@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frontend.Repository\Frontend.Repository.csproj" />
+    <ProjectReference Include="..\Donmee.DataServices\Donmee.DataServices.csproj" />
+    <ProjectReference Include="..\Frontend.Persistance\Frontend.Persistance.csproj" />
   </ItemGroup>
 
 </Project>
