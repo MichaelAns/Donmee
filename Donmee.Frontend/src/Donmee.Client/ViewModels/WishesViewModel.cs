@@ -1,8 +1,6 @@
 ﻿using Donmee.Client.Services.Navigation;
 using Donmee.Client.ViewModels.Base;
-using Frontend.Persistance;
 using Frontend.Persistance.Models;
-using Frontend.Repository;
 using System.Collections.ObjectModel;
 
 namespace Donmee.Client.ViewModels
@@ -16,8 +14,7 @@ namespace Donmee.Client.ViewModels
         
         private void GetWishes()
         {
-            _repository.GetAll().ContinueWith(task
-                => _wishes = new(task.Result));
+            
         }
 
         
@@ -41,6 +38,5 @@ namespace Donmee.Client.ViewModels
                     }); 
         }
 
-        private DonmeeRepository<Wish> _repository = new(new DonmeeDbContextFactory().CreateDbContext());
     }
 }

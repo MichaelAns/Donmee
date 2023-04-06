@@ -1,11 +1,6 @@
 ﻿using Donmee.Client.Services.Navigation;
 using Donmee.Client.ViewModels;
 using Donmee.Client.Views;
-using Frontend.Persistance;
-using Frontend.Persistance.Models;
-using Frontend.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Donmee.Client;

@@ -54,7 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Frontend.Repository\Frontend.Repository.csproj" />
+	  <ProjectReference Include="..\Frontend.Persistance\Frontend.Persistance.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
