@@ -1,8 +1,4 @@
-﻿using Frontend.Persistance;
-using Frontend.Persistance.Models.Enums;
-using Microsoft.EntityFrameworkCore;
-
-namespace Donmee.DataServices.Wish
+﻿namespace Donmee.DataServices.Wish
 {
     public class WishDatabaseService : IWishService
     {
