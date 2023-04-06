@@ -1,13 +1,19 @@
 ﻿using System.Diagnostics;
 using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
+using Donmee.DataServices.Identity;
 
 namespace Donmee.Client.ViewModels
 {
     public partial class LoginViewModel : ViewModelBase
     {
-        public LoginViewModel(INavigationService navigationService) : base(navigationService)
+        public LoginViewModel(
+            INavigationService navigationService, 
+            ISettingsService settingsService,
+            IIdentityService identityService) : base(navigationService, settingsService)
         {
+            IdentityService = IdentityService;
         }
 
         [RelayCommand]
@@ -23,5 +29,9 @@ namespace Donmee.Client.ViewModels
             }
             await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
         }
+
+        public IIdentityService IdentityService { get; private set; }
+
+        
     }
 }

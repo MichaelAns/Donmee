@@ -1,4 +1,5 @@
 ﻿using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
 using Frontend.Persistance.Models;
 using System.Collections.ObjectModel;
@@ -7,9 +8,10 @@ namespace Donmee.Client.ViewModels
 {
     public partial class BlitzWishesViewModel : ViewModelBase
     {
-        public BlitzWishesViewModel(INavigationService navigationService) : base(navigationService)
+        public BlitzWishesViewModel(
+            INavigationService navigationService, 
+            ISettingsService settingsService) : base(navigationService, settingsService)
         {
-            GetWishes();
         }
 
         private async Task<ObservableCollection<Wish>> WishesInit()
@@ -50,6 +52,9 @@ namespace Donmee.Client.ViewModels
         }
 
         private ObservableCollection<Wish> _wishes;
+
+        
+
         public IReadOnlyList<Wish> Wishes => _wishes;
         
         [RelayCommand]

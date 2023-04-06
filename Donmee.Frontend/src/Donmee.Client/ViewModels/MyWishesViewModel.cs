@@ -1,4 +1,5 @@
 ﻿using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
 using Frontend.Persistance.Models;
 using System.Collections.ObjectModel;
@@ -7,10 +8,12 @@ namespace Donmee.Client.ViewModels
 {
     public partial class MyWishesViewModel : ViewModelBase
     {
-        public MyWishesViewModel(INavigationService navigationService) : base(navigationService)
+        public MyWishesViewModel(
+            INavigationService navigationService, 
+            ISettingsService settingsService) : base(navigationService, settingsService)
         {
-            GetWishes();
         }
+
         private void GetWishes()
         {
             WishesInit().ContinueWith(task
@@ -46,6 +49,8 @@ namespace Donmee.Client.ViewModels
 
         [ObservableProperty]
         private Wish _selectedWish;
+
+        
 
         [RelayCommand]
         private async Task SelectWishAsync()

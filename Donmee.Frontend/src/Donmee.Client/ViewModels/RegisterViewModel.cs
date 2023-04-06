@@ -1,4 +1,5 @@
 ﻿using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
 using System.Diagnostics;
 
@@ -6,7 +7,9 @@ namespace Donmee.Client.ViewModels
 {
     public partial class RegisterViewModel : ViewModelBase
     {
-        public RegisterViewModel(INavigationService navigationService) : base(navigationService)
+        public RegisterViewModel(
+            INavigationService navigationService, 
+            ISettingsService settingsService) : base(navigationService, settingsService)
         {
         }
 
