@@ -9,6 +9,7 @@ namespace Frontend.Persistance
             : base(options) 
         {
             //Database.EnsureDeleted();
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             Database.EnsureCreated();
         }
 

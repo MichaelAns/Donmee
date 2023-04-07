@@ -1,13 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Donmee.Client.Services.Navigation;
 using Donmee.Client.Services.Settings;
 using Donmee.Client.Validation;
 using Donmee.Client.Validation.Rules;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Identity;
-using Microsoft.Extensions.Options;
 
 namespace Donmee.Client.ViewModels
 {
@@ -29,13 +26,20 @@ namespace Donmee.Client.ViewModels
         {
             try
             {
-                // TODO : Auth
+                SettingsService.UserId = await IdentityService.Identity(Email.Value, Password.Value);
+                if (String.IsNullOrEmpty(SettingsService.UserId))
+                {
+                    await new Page().DisplayAlert("Alert", "Invalid Email or Password.", "OK");
+                }
+                else
+                {
+                    await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
+                }
             }
             catch (Exception exc)
             {
                 Debug.WriteLine($"[SignIn] Error signing in: {exc}");
-            }
-            await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
+            }            
         }
 
         public IIdentityService IdentityService { get; private set; }

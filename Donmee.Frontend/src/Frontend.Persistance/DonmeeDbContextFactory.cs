@@ -8,8 +8,9 @@ namespace Frontend.Persistance
         public DonmeeDbContext CreateDbContext(string[] args = null)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DonmeeDbContext>();
-            string testPath = @"C:\Users\Borov\source\repos\Donmee\Donmee.Frontend\src\Frontend.Persistance\database.db";
+            string testPath = Path.Combine(FileSystem.AppDataDirectory, "database.db");
             optionsBuilder.UseSqlite($"Filename={testPath}");
+            //optionsBuilder.UseNpgsql(testPath);
             return new DonmeeDbContext(optionsBuilder.Options);
         }
     }
