@@ -24,6 +24,10 @@
         VerticalOptions="Center"
         WidthRequest="150">
         <Label
+            Text="Invalid Email or Password."
+            BackgroundColor="{StaticResource ErrorColor}"
+            IsVisible="{Binding IsSignInError}"/>
+        <Label
             Text="Email"/>
         <Entry
             Text="{Binding Email.Value, Mode=TwoWay}">

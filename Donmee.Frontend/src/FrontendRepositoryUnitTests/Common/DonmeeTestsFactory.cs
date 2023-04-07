@@ -16,6 +16,8 @@ namespace FrontendRepositoryUnitTests.Common
         public static Guid Wish_2 = Guid.NewGuid();
         public static Guid Wish_3 = Guid.NewGuid();
 
+        public static string[] Args = { @"C:\Users\Borov\source\repos\Donmee\Donmee.Frontend\src\FrontendRepositoryUnitTests" };
+
         public static void AddRange(DbContext dbContext)
         {
             User user_1 = new User
@@ -150,10 +152,10 @@ namespace FrontendRepositoryUnitTests.Common
 
         public static async Task InitDatabase()
         {
-            var context = new DonmeeDbContextFactory().CreateDbContext();
+            var context = new DonmeeDbContextFactory().CreateDbContext(Args);
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
-            DonmeeTestsFactory.AddRange(context);
+            AddRange(context);
             await context.SaveChangesAsync();
         }
     }

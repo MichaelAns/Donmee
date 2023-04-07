@@ -12,7 +12,7 @@ namespace FrontendRepositoryUnitTests.Donmee.Services.Identity
             await DonmeeTestsFactory.InitDatabase();
 
             // Act
-            var service = new IdentityDatabaseService();
+            var service = new IdentityDatabaseService(DonmeeTestsFactory.Args);
             var id = await service.Identity("fikalis@gmail.com", "ssssssssss");
 
             // Assert

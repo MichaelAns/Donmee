@@ -13,7 +13,7 @@ namespace FrontendRepositoryUnitTests.Donmee.Services.Wish
             await DonmeeTestsFactory.InitDatabase();
 
             // Act
-            var service = new WishDatabaseService();
+            var service = new WishDatabaseService(DonmeeTestsFactory.Args);
             var wishes = await service.GetWishesAsync(DonmeeTestsFactory.UserId_1);
 
             // Assert
@@ -28,7 +28,7 @@ namespace FrontendRepositoryUnitTests.Donmee.Services.Wish
             await DonmeeTestsFactory.InitDatabase();
 
             // Act
-            var service = new WishDatabaseService();
+            var service = new WishDatabaseService(DonmeeTestsFactory.Args);
             var activeWishes = await service.GetWishesAsync(
                 DonmeeTestsFactory.UserId_1,
                 Frontend.Persistance.Models.Enums.WishStatus.Active);
@@ -45,7 +45,7 @@ namespace FrontendRepositoryUnitTests.Donmee.Services.Wish
             await DonmeeTestsFactory.InitDatabase();
 
             // Act
-            var service = new WishDatabaseService();
+            var service = new WishDatabaseService(DonmeeTestsFactory.Args);
             var completedeWishes = await service.GetWishesAsync(
                 DonmeeTestsFactory.UserId_1,
                 Frontend.Persistance.Models.Enums.WishStatus.Completed);
@@ -61,7 +61,7 @@ namespace FrontendRepositoryUnitTests.Donmee.Services.Wish
             await DonmeeTestsFactory.InitDatabase();
 
             // Act
-            var service = new WishDatabaseService();
+            var service = new WishDatabaseService(DonmeeTestsFactory.Args);
             var wish = await service.GetWishAsync(DonmeeTestsFactory.Wish_1);
 
             // Assert

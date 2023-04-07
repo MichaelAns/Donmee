@@ -11,9 +11,9 @@ namespace FrontendRepositoryUnitTests.Donmee.Database
         {
             // Arrange
             await DonmeeTestsFactory.InitDatabase();
-
+            
             // Act
-            var dbContext = new DonmeeDbContextFactory().CreateDbContext();
+            var dbContext = new DonmeeDbContextFactory().CreateDbContext(DonmeeTestsFactory.Args);
             var users = await dbContext.User.ToListAsync();
             var wishes = await dbContext.Wish.ToListAsync();
             var transaction = await dbContext.Transaction.ToListAsync();

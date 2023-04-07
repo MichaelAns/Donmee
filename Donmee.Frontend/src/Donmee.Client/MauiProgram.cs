@@ -26,6 +26,7 @@ public static class MauiProgram
 			.RegisterViewModels()
 			.RegisterViews()
 			.RegisterServices();
+			//.RegisterDatabaseServices();
 
 		// Register dependencies to the container
 		
@@ -68,12 +69,21 @@ public static class MauiProgram
 
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
     {
+		mauiAppBuilder.Services.AddSingleton<string[]>(services => new string[] { FileSystem.AppDataDirectory });
         mauiAppBuilder.Services.AddSingleton<INavigationService, MauiNavigationService>();
         mauiAppBuilder.Services.AddSingleton<ISettingsService, SettingsService>();
         mauiAppBuilder.Services.AddSingleton<IIdentityService, IdentityDatabaseService>();
         mauiAppBuilder.Services.AddSingleton<IWishService, WishDatabaseService>();
 
         return mauiAppBuilder;
+    }
+
+	public static MauiAppBuilder RegisterDatabaseServices(this MauiAppBuilder mauiAppBuilder)
+	{
+        mauiAppBuilder.Services.AddSingleton<IdentityDatabaseService>(serv => new IdentityDatabaseService(new string[] { FileSystem.AppDataDirectory }));
+        mauiAppBuilder.Services.AddSingleton<WishDatabaseService>(serv => new WishDatabaseService(new string[] { FileSystem.AppDataDirectory }));
+
+		return mauiAppBuilder;
     }
 
 

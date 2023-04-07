@@ -22,19 +22,22 @@ namespace Donmee.Client.ViewModels
         }
 
         public IAsyncRelayCommand SignInCommand { get; private set; }
+
+        [ObservableProperty]
+        private bool _isSignInError = false;
         private async Task SignInAsync()
         {
             try
             {
-                SettingsService.UserId = await IdentityService.Identity(Email.Value, Password.Value);
-                if (String.IsNullOrEmpty(SettingsService.UserId))
-                {
-                    await new Page().DisplayAlert("Alert", "Invalid Email or Password.", "OK");
-                }
-                else
-                {
-                    await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
-                }
+                var response = await IdentityService.Identity("fikalis@gmail.com", "ssssssssss");
+                //var response = await IdentityService.Identity(Email.Value, Password.Value);
+                SettingsService.UserId = response;
+                IsSignInError = false;
+                await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
+            }
+            catch (NullReferenceException exc)
+            {
+                IsSignInError = true;
             }
             catch (Exception exc)
             {

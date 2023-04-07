@@ -2,9 +2,16 @@
 {
     public class WishDatabaseService : IWishService
     {
+        private string[] _args;
+
+        public WishDatabaseService(string[] args)
+        {
+            _args = args;
+        }
+
         public async Task<Frontend.Persistance.Models.Wish> GetWishAsync(Guid id)
         {
-            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext())
+            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
             {
                 // All user's wishes
                 var wishes = await dbContext.Wish
@@ -15,7 +22,7 @@
 
         public async Task<IEnumerable<Frontend.Persistance.Models.Wish>> GetWishesAsync(Guid userId)
         {
-            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext())
+            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
             {
                 // All wishes of other users
                 var wishes = await dbContext.Transaction
@@ -31,7 +38,7 @@
 
         public async Task<IEnumerable<Frontend.Persistance.Models.Wish>> GetWishesAsync(Guid userId, WishStatus wishStatus)
         {
-            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext())
+            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
             {
                 // All user's wishes
                 var wishes = await dbContext.Transaction
