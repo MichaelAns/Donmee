@@ -49,11 +49,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Donmee.DataServices\Donmee.DataServices.csproj" />
 	  <ProjectReference Include="..\Frontend.Persistance\Frontend.Persistance.csproj" />
 	</ItemGroup>
 
@@ -89,5 +91,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionDonmeeClientHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

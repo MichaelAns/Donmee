@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Donmee.Client.Views.LoginView"
              x:DataType="viewmodels:LoginViewModel"
-             Title="LoginView">
+             Title="Login">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="HeaderLabelStyle"
@@ -20,17 +21,28 @@
     </ContentPage.Resources>
     <VerticalStackLayout 
         HorizontalOptions="Center"
-        VerticalOptions="Center">
+        VerticalOptions="Center"
+        WidthRequest="150">
         <Label
-            Text="Login"/>
+            Text="Email"/>
         <Entry
-            Text="Login">
+            Text="{Binding Email.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Label
             Text="Password"/>
         <Entry
             IsPassword="True"
-            Text="Password">
+            Text="{Binding Password.Value,Mode=TwoWay}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <!--LOGIN BUTTON-->
         <Button

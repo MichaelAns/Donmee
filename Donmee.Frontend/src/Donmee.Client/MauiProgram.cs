@@ -1,6 +1,10 @@
-﻿using Donmee.Client.Services.Navigation;
+﻿using CommunityToolkit.Maui;
+using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels;
 using Donmee.Client.Views;
+using Donmee.DataServices.Identity;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.Extensions.Logging;
 
 namespace Donmee.Client;
@@ -17,12 +21,13 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			})
+			.UseMauiCommunityToolkit()
 			.RegisterViewModels()
-			.RegisterViews();
+			.RegisterViews()
+			.RegisterServices();
 
 		// Register dependencies to the container
-		builder.Services
-			.AddSingleton<INavigationService, MauiNavigationService>();
+		
 
 #if DEBUG
 		builder.Logging.AddDebug();
@@ -60,5 +65,14 @@ public static class MauiProgram
         return mauiAppBuilder;
     }
 
-	
+    public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+    {
+        mauiAppBuilder.Services.AddSingleton<INavigationService, MauiNavigationService>();
+        mauiAppBuilder.Services.AddSingleton<ISettingsService, SettingsService>();
+        mauiAppBuilder.Services.AddSingleton<IIdentityService, IdentityDatabaseService>();
+
+        return mauiAppBuilder;
+    }
+
+
 }
