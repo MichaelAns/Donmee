@@ -135,7 +135,7 @@ namespace Frontend.Persistance
                     //UserId = UserId_2,
                     User = user_2,
                     //WishId = Wish_1,
-                    Wish = wish_1
+                    Wish = wish_2
                 },
                 new Transaction
                 {

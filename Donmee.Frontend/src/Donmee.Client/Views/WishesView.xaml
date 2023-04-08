@@ -9,7 +9,7 @@
     <Grid>
         <CollectionView
             SelectionMode="Single"
-            ItemsSource="{Binding Wishes, Mode=OneTime}"
+            ItemsSource="{Binding Wishes}"
             SelectedItem="{Binding SelectedWish, Mode=TwoWay}"
             SelectionChangedCommand="{Binding SelectWishCommand}">
             <!--TEMPLATE-->

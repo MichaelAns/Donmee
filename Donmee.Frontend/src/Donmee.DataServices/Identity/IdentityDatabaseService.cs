@@ -17,7 +17,7 @@ namespace Donmee.DataServices.Identity
             {
                 return dbContext.User.FirstOrDefaultAsync(user =>
                     user.Email == email.ToLower() &&
-                    user.Password == password).Id.ToString();
+                    user.Password == password).Result.Id.ToString();
             }
         }
 

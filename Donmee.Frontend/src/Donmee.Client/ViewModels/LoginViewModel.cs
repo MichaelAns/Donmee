@@ -32,7 +32,6 @@ namespace Donmee.Client.ViewModels
             try
             {
                 var response = await IdentityService.Identity(Email.Value, Password.Value);
-                //var guid = Guid.Parse(response);
                 SettingsService.UserId = response;
                 IsSignInError = false;
                 await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
