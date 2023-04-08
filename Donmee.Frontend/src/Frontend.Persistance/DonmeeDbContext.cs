@@ -9,12 +9,12 @@ namespace Frontend.Persistance
         public DonmeeDbContext(DbContextOptions options)
             : base(options) 
         {
-            //Database.EnsureDeleted();
+            /*Database.EnsureDeleted();
             if (Database.EnsureCreated())
             {
                 FillContext(this);
-            }
-            
+            }*/
+            Database.EnsureCreated();
         }
 
         public DbSet<User> User { get; set; }
@@ -170,6 +170,7 @@ namespace Frontend.Persistance
                     Wish = wish_3,
                     Count = 100
                 });
+            dbContext.SaveChanges();
         }
     }
 }

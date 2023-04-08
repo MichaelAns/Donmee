@@ -11,6 +11,7 @@ namespace Frontend.Persistance
             //string testPath = Path.Combine(args[0], "\\database.db");
             optionsBuilder.UseSqlite($"Filename = {testPath}");
             return new DonmeeDbContext(optionsBuilder.Options);
+            
         }
     }
 }

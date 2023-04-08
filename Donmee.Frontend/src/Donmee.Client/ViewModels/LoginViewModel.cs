@@ -29,12 +29,11 @@ namespace Donmee.Client.ViewModels
         {
             try
             {
-                var response = await IdentityService.Identity("fikalis@gmail.com", "ssssssssss");
-                //var response = await IdentityService.Identity(Email.Value, Password.Value);
+                var response = await IdentityService.Identity(Email.Value, Password.Value);
                 SettingsService.UserId = response;
                 IsSignInError = false;
                 await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
-            }
+            }   
             catch (NullReferenceException exc)
             {
                 IsSignInError = true;

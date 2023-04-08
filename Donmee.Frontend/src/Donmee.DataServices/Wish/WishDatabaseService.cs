@@ -13,14 +13,13 @@
         {
             using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
             {
-                // All user's wishes
-                var wishes = await dbContext.Wish
+                var wish = await dbContext.Wish
                     .FirstOrDefaultAsync(wish => wish.Id == id);
-                return wishes;
+                return wish;
             }
         }
 
-        public async Task<IEnumerable<Frontend.Persistance.Models.Wish>> GetWishesAsync(Guid userId)
+        public async Task<IEnumerable<Frontend.Persistance.Models.Wish>> GetWishesAsync(Guid userId, WishType type)
         {
             using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
             {
@@ -30,7 +29,9 @@
                         trans.UserId != userId &&
                         trans.TransactionType == TransactionType.Creating)
                     .Select(tr => tr.Wish)
-                    .Where(wish => wish.WishStatus == WishStatus.Active)
+                    .Where(wish => 
+                        wish.WishStatus == WishStatus.Active &&
+                        wish.WishType == type)
                     .ToListAsync();
                 return wishes;
             }

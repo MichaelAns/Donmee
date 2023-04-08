@@ -5,7 +5,6 @@ using Donmee.Client.ViewModels;
 using Donmee.Client.Views;
 using Donmee.DataServices.Identity;
 using Donmee.DataServices.Wish;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.Extensions.Logging;
 
 namespace Donmee.Client;
@@ -77,14 +76,4 @@ public static class MauiProgram
 
         return mauiAppBuilder;
     }
-
-	public static MauiAppBuilder RegisterDatabaseServices(this MauiAppBuilder mauiAppBuilder)
-	{
-        mauiAppBuilder.Services.AddSingleton<IdentityDatabaseService>(serv => new IdentityDatabaseService(new string[] { FileSystem.AppDataDirectory }));
-        mauiAppBuilder.Services.AddSingleton<WishDatabaseService>(serv => new WishDatabaseService(new string[] { FileSystem.AppDataDirectory }));
-
-		return mauiAppBuilder;
-    }
-
-
 }

@@ -6,11 +6,11 @@ namespace Donmee.DataServices.Wish
     public interface IWishService
     {
         /// <summary>
-        /// Get wishes of other users
+        /// Get other users wishes depending on the type
         /// </summary>
         /// <param name="userId">Requesting user's id</param>
         /// <returns>Wihes enumerable</returns>
-        public Task<IEnumerable<Frontend.Persistance.Models.Wish>> GetWishesAsync(Guid userId);
+        public Task<IEnumerable<Frontend.Persistance.Models.Wish>> GetWishesAsync(Guid userId, WishType type);
 
         /// <summary>
         /// Get requesting user's wishes

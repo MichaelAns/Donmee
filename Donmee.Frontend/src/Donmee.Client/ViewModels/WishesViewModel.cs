@@ -9,17 +9,20 @@ namespace Donmee.Client.ViewModels
 {
     public partial class WishesViewModel : ViewModelBase
     {
-
         public WishesViewModel(
             INavigationService navigationService, 
             ISettingsService settingsService,
             IWishService wishService) : base(navigationService, settingsService)
         {
             WishService = wishService;
+            GetWishes();
         }
         private void GetWishes()
         {
-            WishService.GetWishesAsync(Guid.Parse(SettingsService.UserId)).ContinueWith(
+            WishService.GetWishesAsync(
+                Guid.Parse(SettingsService.UserId), 
+                Frontend.Persistance.Models.Enums.WishType.Common)
+                .ContinueWith(
                 task =>
                 {
                     _wishes = new(task.Result);
