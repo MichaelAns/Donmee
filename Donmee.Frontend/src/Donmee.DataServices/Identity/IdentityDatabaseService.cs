@@ -1,4 +1,6 @@
-﻿namespace Donmee.DataServices.Identity
+﻿using Frontend.Persistance.Models;
+
+namespace Donmee.DataServices.Identity
 {
     public class IdentityDatabaseService : IIdentityService
     {
@@ -15,7 +17,21 @@
             {
                 return dbContext.User.FirstOrDefaultAsync(user =>
                     user.Email == email.ToLower() &&
-                    user.Password == password).Result.Id.ToString();
+                    user.Password == password).Id.ToString();
+            }
+        }
+
+        public async Task<User> SignUp(User user)
+        {
+            using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
+                {
+                if (await dbContext.User.FirstOrDefaultAsync(u => u.Phone == user.Phone || u.Email == user.Email) != null)
+                {
+                    return null;
+                }
+                var createdUser = await dbContext.User.AddAsync(user);
+                await dbContext.SaveChangesAsync();
+                return createdUser.Entity;
             }
         }
     }

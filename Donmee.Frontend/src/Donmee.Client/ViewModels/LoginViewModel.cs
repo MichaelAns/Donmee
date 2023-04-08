@@ -21,6 +21,8 @@ namespace Donmee.Client.ViewModels
             SignInCommand = new AsyncRelayCommand(SignInAsync, () => IsValid);
         }
 
+        public IIdentityService IdentityService { get; private set; }
+
         public IAsyncRelayCommand SignInCommand { get; private set; }
 
         [ObservableProperty]
@@ -30,6 +32,7 @@ namespace Donmee.Client.ViewModels
             try
             {
                 var response = await IdentityService.Identity(Email.Value, Password.Value);
+                //var guid = Guid.Parse(response);
                 SettingsService.UserId = response;
                 IsSignInError = false;
                 await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
@@ -44,7 +47,7 @@ namespace Donmee.Client.ViewModels
             }            
         }
 
-        public IIdentityService IdentityService { get; private set; }
+        
 
         [ObservableProperty]
         private ValidatableObject<string> _email = new();
