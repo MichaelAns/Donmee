@@ -5,6 +5,6 @@ namespace Donmee.DataServices.Identity
     public interface IIdentityService
     {
         public Task<string> Identity(string email, string password);
-        public Task<User> SignUp(User user);
+        public Task<Frontend.Persistance.Models.User> SignUp(Frontend.Persistance.Models.User user);
     }
 }

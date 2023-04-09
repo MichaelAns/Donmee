@@ -21,7 +21,7 @@ namespace Donmee.DataServices.Identity
             }
         }
 
-        public async Task<User> SignUp(User user)
+        public async Task<Frontend.Persistance.Models.User> SignUp(Frontend.Persistance.Models.User user)
         {
             using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(_args))
                 {

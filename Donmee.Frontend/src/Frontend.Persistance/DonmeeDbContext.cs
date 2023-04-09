@@ -9,14 +9,14 @@ namespace Frontend.Persistance
         public DonmeeDbContext(DbContextOptions options)
             : base(options) 
         {
-            Database.EnsureDeleted();
+            /*Database.EnsureDeleted();
             Database.EnsureCreated();
-            FillContext(this);
+            FillContext(this);*/
             /*if (Database.EnsureCreated())
             {
                 FillContext(this);
             }*/
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         public DbSet<User> User { get; set; }

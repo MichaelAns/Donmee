@@ -19,7 +19,12 @@
             Text="{Binding Wish.CurrentAmount}"/>
         <Label
             Text="{Binding Wish.Goal}"/>
-        <Label
-            Text="{Binding Wish.EndDate}"/>
+        <Entry
+            Text=""
+            Keyboard="Numeric"
+            Margin="0, 50, 0, 0"/>
+        <Button
+            Text="Donate"/>
+        <Label/>
     </VerticalStackLayout>
 </ContentPage>

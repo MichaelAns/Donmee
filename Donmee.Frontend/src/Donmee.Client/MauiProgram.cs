@@ -4,6 +4,8 @@ using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels;
 using Donmee.Client.Views;
 using Donmee.DataServices.Identity;
+using Donmee.DataServices.Transaction;
+using Donmee.DataServices.User;
 using Donmee.DataServices.Wish;
 using Microsoft.Extensions.Logging;
 
@@ -25,9 +27,6 @@ public static class MauiProgram
 			.RegisterViewModels()
 			.RegisterViews()
 			.RegisterServices();
-			//.RegisterDatabaseServices();
-
-		// Register dependencies to the container
 		
 
 #if DEBUG
@@ -62,6 +61,7 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddTransient<WishDetailsViewModel>();
 		mauiAppBuilder.Services.AddTransient<BlitzWishesViewModel>();
         mauiAppBuilder.Services.AddTransient<MyWishesViewModel>();
+        mauiAppBuilder.Services.AddTransient<ProfileViewModel>();
 
         return mauiAppBuilder;
     }
@@ -73,6 +73,8 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<ISettingsService, SettingsService>();
         mauiAppBuilder.Services.AddSingleton<IIdentityService, IdentityDatabaseService>();
         mauiAppBuilder.Services.AddSingleton<IWishService, WishDatabaseService>();
+        mauiAppBuilder.Services.AddSingleton<ITransactionService, TransactionDatabaseService>();
+        mauiAppBuilder.Services.AddSingleton<IUserService, UserDatabaseService>();
 
         return mauiAppBuilder;
     }
