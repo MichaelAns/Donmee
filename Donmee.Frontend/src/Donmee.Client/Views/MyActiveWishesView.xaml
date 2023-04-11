@@ -3,14 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:temp="clr-namespace:Donmee.Client.Views.Templates"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
-             x:Class="Donmee.Client.Views.MyWishesView"
-             x:DataType="vm:MyWishesViewModel"
-             Title="My wishes">
+             x:Class="Donmee.Client.Views.MyActiveWishesView"
+             x:DataType="vm:MyActiveWishesViewModel"
+             Title="Active">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
         <CollectionView
+            Grid.Row="0"
             SelectionMode="Single"
-            ItemsSource="{Binding Wishes, Mode=OneTime}"
-            SelectedItem="{Binding SelectedWish, Mode=TwoWay}"
+            ItemsSource="{Binding Wishes}"
+            SelectedItem="{Binding SelectedWish}"
             SelectionChangedCommand="{Binding SelectWishCommand}">
             <!--TEMPLATE-->
             <CollectionView.ItemTemplate>
@@ -19,5 +24,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button
+            Text="Create"
+            Grid.Row="1"/>
     </Grid>
 </ContentPage>

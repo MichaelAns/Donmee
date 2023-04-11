@@ -26,6 +26,10 @@
             Text="Replenish"
             Command="{Binding ReplenishmentCommand}"
             Margin="0, 30"/>
+        <Button 
+            Text="Refresh"
+            Command="{Binding RefreshCommand}"
+            Margin="0, 30"/>
         <Label
             Text="Email address:"/>
         <Label
@@ -45,6 +49,6 @@
         <Label
             Text="Second name:"/>
         <Label
-            Text="{Binding User.SecondName}"/>
+            Text="{Binding User.SecondName}"/>        
     </VerticalStackLayout>
 </ContentPage>

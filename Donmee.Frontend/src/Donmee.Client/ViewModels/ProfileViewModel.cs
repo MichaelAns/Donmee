@@ -63,14 +63,16 @@ namespace Donmee.Client.ViewModels
 
             }
         }
-
-        //
+                
         [RelayCommand]
         private void Validate()
         {
             ReplenishmentCommand.NotifyCanExecuteChanged();
         }
 
+        // Refresh
+        [RelayCommand]
+        private void Refresh() => Load();
 
     }
 }

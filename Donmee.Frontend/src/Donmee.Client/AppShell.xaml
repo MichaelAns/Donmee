@@ -40,14 +40,13 @@
             Route="MyWishes">
             <ShellContent Title="Active"
                           Route="ActiveWishes"
-                          ContentTemplate="{DataTemplate views:MyWishesView}"
-                          />
+                          ContentTemplate="{DataTemplate views:MyActiveWishesView}"/>
             <ShellContent Title="Completed"
                           Route="CompletedWishes"
-                          ContentTemplate="{DataTemplate views:MyWishesView}"/>
+                          ContentTemplate="{DataTemplate views:MyCompletedWishesView}"/>
         </Tab>
         <Tab 
-            Title="Options"
+            Title="Profile"
             Route="Options">
             <ShellContent Title="Profile"
                           Route="Profile" 
