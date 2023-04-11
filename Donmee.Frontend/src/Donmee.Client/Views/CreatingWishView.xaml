@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Donmee.Client.Views.CreatingWishView"
+             x:DataType="vm:CreatingWishViewModel"
+             Title="Creating a wish">
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+        <Image
+            Source="wish.jpeg"
+            HeightRequest="50"/>
+        <Label
+            IsVisible="{Binding IsError}"
+            BackgroundColor="{StaticResource ErrorColor}"
+            Text="{Binding ErrorLabel}"/>
+        <Label
+            Text="Name:"/>
+        <Entry
+            Text="{Binding Name.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            Text="Description:"/>
+        <Entry
+            Text="{Binding Description.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            Text="Goal:"/>
+        <Entry
+            Text="{Binding Goal.Value}"
+            Keyboard="Numeric">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            Text="Wish's type:"/>
+        <Picker
+            SelectedItem="{Binding SelectedWishType}"
+            ItemsSource="{Binding WishTypes}"/>
+        <Button
+            Margin="0, 30"
+            Text="Create"
+            Command="{Binding CreateCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

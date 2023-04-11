@@ -37,7 +37,6 @@ namespace Donmee.Client.ViewModels
                 IsError = false;
                 User user = new User
                 {
-                    Id = Guid.NewGuid(),
                     Name = Name.Value,
                     SecondName = SecondName.Value,
                     Password = Password.Value,

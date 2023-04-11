@@ -45,6 +45,8 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddTransient<BlitzWishesView>();
 
         mauiAppBuilder.Services.AddTransient<MyActiveWishesView>();
+        mauiAppBuilder.Services.AddTransient<CreatingWishView>();
+
         mauiAppBuilder.Services.AddTransient<MyCompletedWishesView>();
 
         mauiAppBuilder.Services.AddTransient<WishDetailsView>();
@@ -69,6 +71,7 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddTransient<MyWishDetailsViewModel>();
 
         mauiAppBuilder.Services.AddTransient<ProfileViewModel>();
+        mauiAppBuilder.Services.AddTransient<CreatingWishViewModel>();
 
         return mauiAppBuilder;
     }

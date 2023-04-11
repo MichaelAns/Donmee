@@ -26,6 +26,7 @@
         </CollectionView>
         <Button
             Text="Create"
-            Grid.Row="1"/>
+            Grid.Row="1"
+            Command="{Binding CreateWishCommand}"/>
     </Grid>
 </ContentPage>

@@ -64,7 +64,11 @@ namespace Donmee.Client.ViewModels
                     });
         }
 
-        // 
+        [RelayCommand]
+        private async Task CreateWishAsync()
+        {
+            await NavigationService.NavigateToAsync("/CreatingWish");
+        }
 
     }
 }
