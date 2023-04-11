@@ -41,16 +41,20 @@ namespace Donmee.Client.ViewModels
         [RelayCommand]
         private async Task SelectWishAsync()
         {
+            var wish = SelectedWish;
+            SelectedWish = null;
             await NavigationService.NavigateToAsync(
                     "/WishDetails",
                     new Dictionary<string, object> 
                     {
                         {
                                 "WishDetails",
-                                SelectedWish
+                                wish
                         } 
                     }); 
         }
+
+        
 
     }
 }

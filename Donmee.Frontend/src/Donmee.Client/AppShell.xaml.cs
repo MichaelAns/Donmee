@@ -37,6 +37,7 @@ public partial class AppShell : Shell
     {
         Routing.RegisterRoute("WishDetails", typeof(WishDetailsView));
         Routing.RegisterRoute("MyWishDetails", typeof(MyWishDetailsView));
+        
     }
 
 

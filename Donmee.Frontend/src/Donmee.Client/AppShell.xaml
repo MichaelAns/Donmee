@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Donmee.Client.Views"
+    xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
     Shell.FlyoutBehavior="Disabled">
 
     <FlyoutItem>
@@ -39,7 +40,8 @@
             Route="MyWishes">
             <ShellContent Title="Active"
                           Route="ActiveWishes"
-                          ContentTemplate="{DataTemplate views:MyWishesView}"/>
+                          ContentTemplate="{DataTemplate views:MyWishesView}"
+                          />
             <ShellContent Title="Completed"
                           Route="CompletedWishes"
                           ContentTemplate="{DataTemplate views:MyWishesView}"/>

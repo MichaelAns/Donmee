@@ -31,7 +31,7 @@ namespace Donmee.DataServices.Transaction
             using (var dbContext = new DonmeeDbContextFactory().CreateDbContext(Args))
             {
                 var balance = dbContext.User.FirstOrDefaultAsync(user => user.Id == userId).Result.Balance;
-                if (money < balance)
+                if (money > balance)
                 {
                     throw new Exception("Insufficient funds");
                 }

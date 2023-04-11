@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:temp="clr-namespace:Donmee.Client.Views.Templates"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Donmee.Client.Views.WishesView"
              x:DataType="vm:WishesViewModel"
              Title="WISHES">
@@ -10,7 +11,7 @@
         <CollectionView
             SelectionMode="Single"
             ItemsSource="{Binding Wishes}"
-            SelectedItem="{Binding SelectedWish, Mode=TwoWay}"
+            SelectedItem="{Binding SelectedWish}"
             SelectionChangedCommand="{Binding SelectWishCommand}">
             <!--TEMPLATE-->
             <CollectionView.ItemTemplate>
