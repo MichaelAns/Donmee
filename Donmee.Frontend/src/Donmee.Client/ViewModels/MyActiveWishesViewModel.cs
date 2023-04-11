@@ -22,7 +22,7 @@ namespace Donmee.Client.ViewModels
         // Wish service
         public IWishService WishService { get; private set; }        
 
-        private void GetWishes()
+        public void GetWishes()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Donmee.Client.ViewModels
                     WishStatus.Active)
                     .ContinueWith(task =>
                     {
-                        _wishes = new(task.Result);
+                        Wishes = new(task.Result);
                     });
             }
             catch (Exception exc)
@@ -41,9 +41,9 @@ namespace Donmee.Client.ViewModels
             }
         }
 
-        // 
+        // Props
+        [ObservableProperty]
         private ObservableCollection<Wish> _wishes;
-        public IReadOnlyList<Wish> Wishes => _wishes;
 
         [ObservableProperty]
         private Wish _selectedWish;        
@@ -69,6 +69,7 @@ namespace Donmee.Client.ViewModels
         {
             await NavigationService.NavigateToAsync("/CreatingWish");
         }
+
 
     }
 }

@@ -6,7 +6,10 @@ public partial class ProfileView : ContentPage
 {
 	public ProfileView(ProfileViewModel viewModel)
 	{
-		BindingContext = viewModel;
-		InitializeComponent();
+		ProfileViewModel = viewModel;
+		BindingContext = ProfileViewModel;
+
+        InitializeComponent();
 	}
+    public ProfileViewModel ProfileViewModel { get; set; }
 }

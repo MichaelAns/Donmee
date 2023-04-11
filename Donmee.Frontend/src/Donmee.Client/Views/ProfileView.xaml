@@ -26,10 +26,6 @@
             Text="Replenish"
             Command="{Binding ReplenishmentCommand}"
             Margin="0, 30"/>
-        <Button 
-            Text="Refresh"
-            Command="{Binding RefreshCommand}"
-            Margin="0, 30"/>
         <Label
             Text="Email address:"/>
         <Label
