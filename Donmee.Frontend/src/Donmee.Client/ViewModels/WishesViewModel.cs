@@ -1,23 +1,32 @@
 ﻿using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
-using Frontend.Persistance;
+using Donmee.DataServices.Wish;
 using Frontend.Persistance.Models;
-using Frontend.Repository;
 using System.Collections.ObjectModel;
 
 namespace Donmee.Client.ViewModels
 {
     public partial class WishesViewModel : ViewModelBase
     {
-        public WishesViewModel(INavigationService navigationService) : base(navigationService)
+        public WishesViewModel(
+            INavigationService navigationService, 
+            ISettingsService settingsService,
+            IWishService wishService) : base(navigationService, settingsService)
         {
+            WishService = wishService;
             GetWishes();
         }
-        
         private void GetWishes()
         {
-            _repository.GetAll().ContinueWith(task
-                => _wishes = new(task.Result));
+            WishService.GetWishesAsync(
+                Guid.Parse(SettingsService.UserId), 
+                Frontend.Persistance.Models.Enums.WishType.Common)
+                .ContinueWith(
+                task =>
+                {
+                    _wishes = new(task.Result);
+                });
         }
 
         
@@ -27,20 +36,25 @@ namespace Donmee.Client.ViewModels
         [ObservableProperty]
         private Wish _selectedWish;
 
+        public IWishService WishService { get; private set; }
+
         [RelayCommand]
         private async Task SelectWishAsync()
         {
+            var wish = SelectedWish;
+            SelectedWish = null;
             await NavigationService.NavigateToAsync(
                     "/WishDetails",
                     new Dictionary<string, object> 
                     {
                         {
                                 "WishDetails",
-                                SelectedWish
+                                wish
                         } 
                     }); 
         }
 
-        private DonmeeRepository<Wish> _repository = new(new DonmeeDbContextFactory().CreateDbContext());
+        
+
     }
 }

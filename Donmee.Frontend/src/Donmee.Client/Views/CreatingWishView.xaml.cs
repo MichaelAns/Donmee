@@ -2,9 +2,9 @@ using Donmee.Client.ViewModels;
 
 namespace Donmee.Client.Views;
 
-public partial class MyWishesView : ContentPage
+public partial class CreatingWishView : ContentPage
 {
-	public MyWishesView(MyWishesViewModel viewModel)
+	public CreatingWishView(CreatingWishViewModel viewModel)
 	{
 		BindingContext = viewModel;
 		InitializeComponent();

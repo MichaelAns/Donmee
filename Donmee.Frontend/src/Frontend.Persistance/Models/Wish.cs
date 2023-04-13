@@ -12,7 +12,7 @@ namespace Frontend.Persistance.Models
         public int CurrentAmount { get; set; } = 0;
         public WishType WishType { get; set; }
         public WishStatus WishStatus { get; set; } = WishStatus.Active;
-        public DateTime EndDate { get; set; }
+        public DateTime EndDate { get; set; } = DateTime.Now.AddDays(4);
         public virtual IEnumerable<Transaction>? Transactions { get; set; }
     }
 }

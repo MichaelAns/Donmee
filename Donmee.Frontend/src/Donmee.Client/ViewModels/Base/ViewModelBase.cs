@@ -1,13 +1,17 @@
 ﻿using Donmee.Client.Services.Navigation;
+using Donmee.Client.Services.Settings;
 
 namespace Donmee.Client.ViewModels.Base
 {
     public abstract partial class ViewModelBase : ObservableObject, IViewModelBase, IDisposable
     {
-        public ViewModelBase(INavigationService navigationService)
+        protected ViewModelBase(
+            INavigationService navigationService, 
+            ISettingsService settingsService)
         {
             NavigationService = navigationService;
-        }
+            SettingsService = settingsService;
+        }        
 
         private readonly SemaphoreSlim _isBusyLock = new(1, 1);
 
@@ -19,7 +23,10 @@ namespace Donmee.Client.ViewModels.Base
         [ObservableProperty]
         private bool _isBusy;
 
-        public INavigationService NavigationService { get; private set; }        
+
+        public INavigationService NavigationService { get; private set; }
+
+        public ISettingsService SettingsService { get; private set; }
 
         public virtual void ApplyQueryAttributes(IDictionary<string, object> query)
         {

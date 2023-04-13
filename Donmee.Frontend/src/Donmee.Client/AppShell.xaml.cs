@@ -37,7 +37,28 @@ public partial class AppShell : Shell
     {
         Routing.RegisterRoute("WishDetails", typeof(WishDetailsView));
         Routing.RegisterRoute("MyWishDetails", typeof(MyWishDetailsView));
+        Routing.RegisterRoute("CreatingWish", typeof(CreatingWishView));
     }
 
+    protected override void OnNavigated(ShellNavigatedEventArgs args)
+    {
+        string location = args.Current?.Location?.ToString();
 
+        switch(location)
+        {
+            case @"//Main/Options/Profile":
+                ((ProfileView)Shell.Current.CurrentPage).ProfileViewModel.RefreshCommand.Execute(null);
+                break;
+            case @"//Main/MyWishes/ActiveWishes":
+                ((MyActiveWishesView)Shell.Current.CurrentPage).MyActiveWishesViewModel.GetWishes();
+                break;
+        }
+
+        /*if (location is @"//Main/Options/Profile")
+        {
+            ((ProfileView)Shell.Current.CurrentPage).ProfileViewModel.RefreshCommand.Execute(null);
+        }*/
+
+        base.OnNavigated(args);
+    }
 }

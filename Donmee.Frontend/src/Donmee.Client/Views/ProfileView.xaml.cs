@@ -1,9 +1,15 @@
+using Donmee.Client.ViewModels;
+
 namespace Donmee.Client.Views;
 
 public partial class ProfileView : ContentPage
 {
-	public ProfileView()
+	public ProfileView(ProfileViewModel viewModel)
 	{
-		InitializeComponent();
+		ProfileViewModel = viewModel;
+		BindingContext = ProfileViewModel;
+
+        InitializeComponent();
 	}
+    public ProfileViewModel ProfileViewModel { get; set; }
 }

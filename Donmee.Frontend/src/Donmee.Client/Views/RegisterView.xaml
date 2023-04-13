@@ -2,46 +2,81 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Donmee.Client.Views.RegisterView"
              x:DataType="viewmodels:RegisterViewModel"
-             Title="RegisterView">
+             Title="Register">
     <VerticalStackLayout
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label
             Text="Enter your Email address:"/>
         <Entry
-            Text="Email">
+            Text="{Binding Email.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Label
             Text="Enter the password:"/>
         <Entry
             IsPassword="True"
-            Text="Password">
+            Text="{Binding Password.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Label
             Text="Repeat the password:"/>
         <Entry
             IsPassword="True"
-            Text="Password">
+            Text="{Binding RepeatPassword.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Label
             Text="Enter your phone number:"/>
         <Entry
-            Text="Phone number">
+            Text="{Binding Phone.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Label
             Text="Enter your name:"/>
         <Entry
-            Text="Name">
+            Text="{Binding Name.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Label
             Text="Enter your second name:"/>
         <Entry
-            Text="Second name">
+            Text="{Binding SecondName.Value}">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
         </Entry>
         <Button 
             Text="Register"
             Command="{Binding SignUpCommand}"/>
+        <Label
+            Text="{Binding ErrorLabel}"
+            IsVisible="{Binding IsError}"
+            BackgroundColor="{StaticResource ErrorColor}"/>
     </VerticalStackLayout>
 </ContentPage>
