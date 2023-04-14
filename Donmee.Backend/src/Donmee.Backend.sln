@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.WebApi", "Donmee.WebApi\Donmee.WebApi.csproj", "{C3BCF624-08D2-4793-BA27-96491DB5CB2F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5FE2267C-C30A-43FE-8EB0-8B64B91CE367}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B345201C-842D-4A1F-B5C6-1C1AC0CECBE2}"
@@ -13,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4259A307-924F-4C3D-A78B-68E43044419F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.Persistence", "Donmee.Persistence\Donmee.Persistence.csproj", "{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.Persistence", "Donmee.Persistence\Donmee.Persistence.csproj", "{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.WebApi", "Donmee.WebApi\Donmee.WebApi.csproj", "{1E5F4D3D-3116-4B12-8454-D90F87ED1C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,21 +21,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3BCF624-08D2-4793-BA27-96491DB5CB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3BCF624-08D2-4793-BA27-96491DB5CB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3BCF624-08D2-4793-BA27-96491DB5CB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3BCF624-08D2-4793-BA27-96491DB5CB2F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E5F4D3D-3116-4B12-8454-D90F87ED1C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E5F4D3D-3116-4B12-8454-D90F87ED1C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E5F4D3D-3116-4B12-8454-D90F87ED1C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E5F4D3D-3116-4B12-8454-D90F87ED1C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C3BCF624-08D2-4793-BA27-96491DB5CB2F} = {C4FEB2CE-51E4-41C8-894C-CF6C1D18CBAC}
 		{2CEC98E6-26D7-4809-A1F8-0BC85478BBC4} = {B345201C-842D-4A1F-B5C6-1C1AC0CECBE2}
+		{1E5F4D3D-3116-4B12-8454-D90F87ED1C34} = {C4FEB2CE-51E4-41C8-894C-CF6C1D18CBAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0A0C783-0005-4A93-8D5D-2916E611ABDB}

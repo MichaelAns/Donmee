@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Donmee.Client.Views.WishDetailsView"
              x:DataType="vm:WishDetailsViewModel"
              Title="{Binding Wish.Name}">
@@ -19,7 +20,21 @@
             Text="{Binding Wish.CurrentAmount}"/>
         <Label
             Text="{Binding Wish.Goal}"/>
+        <Entry
+            Text="{Binding Money}"
+            Keyboard="Numeric"
+            Margin="0, 50, 0, 0">
+            <Entry.Behaviors>
+                <mct:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding ValidateCommand}"/>
+            </Entry.Behaviors>
+        </Entry>        
+        <Button
+            Text="Donate"
+            Command="{Binding DonateCommand}"/>
         <Label
-            Text="{Binding Wish.EndDate}"/>
+            Text="{Binding ErrorMessage}"
+            IsVisible="{Binding IsError}"/>
     </VerticalStackLayout>
 </ContentPage>

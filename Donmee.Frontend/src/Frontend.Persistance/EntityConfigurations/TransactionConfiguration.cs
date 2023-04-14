@@ -11,7 +11,7 @@ namespace Frontend.Persistance.EntityConfigurations
                 .IsUnique();
 
             builder.Property(transaction => transaction.Date)
-                .HasDefaultValue(DateTime.Now);
+                .HasDefaultValueSql("NOW()");
 
             // When TransactionType is Replenishment
             builder.Property(transaction => transaction.Count)

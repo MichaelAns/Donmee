@@ -353,3 +353,5 @@ MigrationBackup/
 /Donmee.Frontend/src/FrontendRepositoryUnitTests/Test.db
 /Donmee.Frontend/src/FrontendRepositoryUnitTests/Test.db-shm
 /Donmee.Frontend/src/FrontendRepositoryUnitTests/Test.db-wal
+/Donmee.Frontend/src/Frontend.Persistance/database.db
+/Donmee.Frontend/src/FrontendRepositoryUnitTests/database.db
