@@ -1,4 +1,4 @@
-﻿namespace Donmee.Persistence.Models
+﻿namespace Donmee.Domain
 {
     public class User
     {
@@ -9,8 +9,5 @@
         public string Password { get; set; }
         public string Email { get; set; }
         public double Balance { get; set; }
-        // public double Bonus { get; set; }
-
-        public virtual IEnumerable<Transaction>? Transactions { get; set; }
     }
 }
