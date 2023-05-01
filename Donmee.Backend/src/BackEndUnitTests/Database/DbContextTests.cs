@@ -13,7 +13,7 @@ namespace BackEndUnitTests.Database
 
             // Act
             var dbContext = await DonmeeTestsFactory.InitDatabase();
-            var users = await dbContext.User.ToListAsync();
+            var users = await dbContext.Users.ToListAsync();
             var wishes = await dbContext.Wish.ToListAsync();
             var transaction = await dbContext.Transaction.ToListAsync();
 

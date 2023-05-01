@@ -12,14 +12,13 @@ namespace Donmee.WebApi.Controllers
     public class AuthController : ControllerBase
     {
         public AuthController(
-            UserManager<User> userManager, 
-            JwtConfig jwtConfig)
+            UserManager<User> userManager)
         {
             _userManager = userManager;
-            _jwtConfig = jwtConfig;
+            //_jwtConfig = jwtConfig;
         }
         private readonly UserManager<Persistence.Models.User> _userManager;
-        private readonly JwtConfig _jwtConfig;
+        //private readonly JwtConfig _jwtConfig;
 
         [HttpPost]
         [Route("Register")]
@@ -53,11 +52,11 @@ namespace Donmee.WebApi.Controllers
 
                 var newUser = new Persistence.Models.User()
                 {
-                    Name = requestUser.Name,
+                    UserName = requestUser.Name,
                     SecondName = requestUser.SecondName,
                     Email = requestUser.Email,
-                    Phone = requestUser.Phone,
-                    Password = passwordHash
+                    PhoneNumber = requestUser.Phone,
+                    PasswordHash = passwordHash
                 };
 
                 var isCreated = await _userManager.CreateAsync(newUser, requestUser.Password);
