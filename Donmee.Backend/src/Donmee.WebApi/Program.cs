@@ -1,4 +1,5 @@
 using Donmee.Persistence;
+using Donmee.Persistence.Models;
 using Donmee.WebApi.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +18,7 @@ builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DonmeeDbContext>().AddDefaultTokenProviders();
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection(key: "JwtConfig"));
 
 builder.Services.AddAuthentication(configureOptions: options =>

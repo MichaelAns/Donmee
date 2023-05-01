@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.WebApi", "Donmee.Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackEndUnitTests", "BackEndUnitTests\BackEndUnitTests.csproj", "{F3613058-958A-47E6-B79E-57BA86F229DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.Domain", "Donmee.Domain\Donmee.Domain.csproj", "{8471F797-5306-46B9-9C75-61120C288604}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.Domain", "Donmee.Domain\Donmee.Domain.csproj", "{8471F797-5306-46B9-9C75-61120C288604}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.Application", "Donmee.Application\Donmee.Application.csproj", "{3B92B2E9-BF03-4F11-8152-4EE54033D408}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.Application", "Donmee.Application\Donmee.Application.csproj", "{3B92B2E9-BF03-4F11-8152-4EE54033D408}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

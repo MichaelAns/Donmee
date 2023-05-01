@@ -6,13 +6,13 @@
         {
             return new Domain.User
             {
-                Id = user.Id,
-                Name = user.Name,
+                Id = Guid.Parse(user.Id),
+                Name = user.UserName,
                 SecondName = user.SecondName,
                 Email = user.Email,
                 Balance = user.Balance,
-                Password = user.Password,
-                Phone = user.Phone
+                Password = String.Empty,
+                Phone = user.PhoneNumber
             };
         }
     }

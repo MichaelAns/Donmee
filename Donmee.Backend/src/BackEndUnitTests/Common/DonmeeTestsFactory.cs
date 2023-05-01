@@ -7,9 +7,9 @@ namespace BackEndUnitTests.Common
 {
     public static class DonmeeTestsFactory
     {
-        public static Guid UserId_1 = Guid.NewGuid();
-        public static Guid UserId_2 = Guid.NewGuid();
-        public static Guid UserId_3 = Guid.NewGuid();
+        public static string UserId_1 = Guid.NewGuid().ToString();
+        public static string UserId_2 = Guid.NewGuid().ToString();
+        public static string UserId_3 = Guid.NewGuid().ToString();
 
         public static Guid Transaction_1 = Guid.NewGuid();
         public static Guid Transaction_2 = Guid.NewGuid();
@@ -24,29 +24,29 @@ namespace BackEndUnitTests.Common
             User user_1 = new User
             {
                 Id = UserId_1,
-                Name = "Антон",
+                UserName = "Антон",
                 SecondName = "Фикалис",
                 Email = "fikalis@gmail.com",
-                Password = "ssssssssss",
-                Phone = "+79002281488"
+                PasswordHash = "ssssssssss",
+                PhoneNumber = "+79002281488"
             };
             User user_2 = new User
             {
                 Id = UserId_2,
-                Name = "Валерий",
+                UserName = "Валерий",
                 SecondName = "Жмышенко",
                 Email = "zhma@gmail.com",
-                Password = "sssssssss",
-                Phone = "+79052281488"
+                PasswordHash = "sssssssss",
+                PhoneNumber = "+79052281488"
             };
             User user_3 = new User
             {
                 Id = UserId_3,
-                Name = "Денис",
+                UserName = "Денис",
                 SecondName = "Сухачев",
                 Email = "denchik@gmail.com",
-                Password = "sssssssss",
-                Phone = "+79002281488"
+                PasswordHash = "sssssssss",
+                PhoneNumber = "+79002281488"
             };
 
             Wish wish_1 = new Wish

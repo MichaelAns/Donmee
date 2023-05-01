@@ -9,7 +9,7 @@ namespace Donmee.Persistence
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            var connectionString = configuration["DefaultConnection"];
+            var connectionString = configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<DonmeeDbContext>(options =>
                 options.UseNpgsql(connectionString));
             return services;
