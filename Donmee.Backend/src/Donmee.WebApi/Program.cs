@@ -18,7 +18,7 @@ builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DonmeeDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DonmeeDbContext>();
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection(key: "JwtConfig"));
 
 builder.Services.AddAuthentication(configureOptions: options =>
@@ -43,6 +43,14 @@ builder.Services.AddAuthentication(configureOptions: options =>
         };
     });
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+});
 
 var app = builder.Build();
 
