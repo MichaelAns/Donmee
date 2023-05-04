@@ -1,6 +1,7 @@
 ﻿using Donmee.Persistence.Models;
 using Donmee.WebApi.Configurations;
 using Donmee.WebApi.Models;
+using Donmee.WebApi.Models.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -28,7 +29,7 @@ namespace Donmee.WebApi.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([FromBody] Domain.User requestUser)
+        public async Task<IActionResult> Register([FromBody] UserRegistrationDto requestUser)
         {
             // Validate the incoming request
             if (ModelState.IsValid)
@@ -85,6 +86,60 @@ namespace Donmee.WebApi.Controllers
             }
 
             return BadRequest();
+        }
+
+        [Route("Login")]
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] UserLoginDto loginRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingUser = await _userManager.FindByEmailAsync(loginRequest.Email);
+
+                if(existingUser == null)
+                {
+                    return BadRequest(new AuthResult()
+                    {
+                        Errors = new List<string>()
+                        {
+                            "Invalid payload"
+                        },
+                        Result = false
+                    });
+                }
+
+                var passwordHash = HashCode(loginRequest.Password);
+                var isCorrect = await _userManager.CheckPasswordAsync(existingUser, passwordHash);
+
+                if (!isCorrect)
+                {
+                    return BadRequest(new AuthResult()
+                    {
+                        Errors = new List<string>()
+                        {
+                            "Invalid credentials"
+                        },
+                        Result = false
+                    });
+                }
+
+                var jwtToken = GenerateJwtToken(existingUser);
+
+                return Ok(new AuthResult()
+                {
+                    Token = jwtToken,
+                    Result = true
+                });
+            }
+
+            return BadRequest(new AuthResult()
+            {
+                Errors = new List<string>()
+                    {
+                        "Invalid creditionals"
+                    },
+                Result = false
+            });
         }
 
         private string HashCode(string source)
