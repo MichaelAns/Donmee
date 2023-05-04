@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.Domain", "Donmee.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.Application", "Donmee.Application\Donmee.Application.csproj", "{3B92B2E9-BF03-4F11-8152-4EE54033D408}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.Console", "Donmee.Console\Donmee.Console.csproj", "{A5AE7873-243B-488B-B4AC-3FA026479CF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{3B92B2E9-BF03-4F11-8152-4EE54033D408}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B92B2E9-BF03-4F11-8152-4EE54033D408}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B92B2E9-BF03-4F11-8152-4EE54033D408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5AE7873-243B-488B-B4AC-3FA026479CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5AE7873-243B-488B-B4AC-3FA026479CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5AE7873-243B-488B-B4AC-3FA026479CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5AE7873-243B-488B-B4AC-3FA026479CF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{F3613058-958A-47E6-B79E-57BA86F229DE} = {4259A307-924F-4C3D-A78B-68E43044419F}
 		{8471F797-5306-46B9-9C75-61120C288604} = {5FE2267C-C30A-43FE-8EB0-8B64B91CE367}
 		{3B92B2E9-BF03-4F11-8152-4EE54033D408} = {5FE2267C-C30A-43FE-8EB0-8B64B91CE367}
+		{A5AE7873-243B-488B-B4AC-3FA026479CF4} = {C4FEB2CE-51E4-41C8-894C-CF6C1D18CBAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0A0C783-0005-4A93-8D5D-2916E611ABDB}

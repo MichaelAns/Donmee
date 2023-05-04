@@ -7,7 +7,7 @@ namespace BackEndUnitTests.Common
 {
     public static class DonmeeTestsFactory
     {
-        public static string UserId_1 = Guid.NewGuid().ToString();
+        public static string UserId_1 = "6F0E85F5-50D9-4E4B-AA73-6454815D6F1A";
         public static string UserId_2 = Guid.NewGuid().ToString();
         public static string UserId_3 = Guid.NewGuid().ToString();
 

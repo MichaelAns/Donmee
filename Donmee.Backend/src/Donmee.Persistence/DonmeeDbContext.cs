@@ -9,10 +9,10 @@ namespace Donmee.Persistence
             : base(options)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
-        // public DbSet<User> User { get; set; }
         public DbSet<Wish> Wish { get; set; }
         public DbSet<Transaction> Transaction { get; set; }
 

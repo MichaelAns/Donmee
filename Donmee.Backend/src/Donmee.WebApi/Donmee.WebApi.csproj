@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Donmee.Application\Donmee.Application.csproj" />
     <ProjectReference Include="..\Donmee.Domain\Donmee.Domain.csproj" />
     <ProjectReference Include="..\Donmee.Persistence\Donmee.Persistence.csproj" />
   </ItemGroup>
