@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Donmee.Domain\Donmee.Domain.csproj" />
-    <ProjectReference Include="..\Donmee.Persistence\Donmee.Persistence.csproj" />
-  </ItemGroup>
-
 </Project>
