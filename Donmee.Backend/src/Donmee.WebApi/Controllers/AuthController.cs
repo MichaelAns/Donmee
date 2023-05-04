@@ -1,10 +1,8 @@
 ﻿using Donmee.Persistence.Models;
-using Donmee.WebApi.Configurations;
 using Donmee.WebApi.Models;
 using Donmee.WebApi.Models.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -13,6 +11,9 @@ using System.Text;
 
 namespace Donmee.WebApi.Controllers
 {
+    /// <summary>
+    /// Вход и регистрация пользователя
+    /// </summary>
     [Route("api/[controller]")] 
     [ApiController]
     public class AuthController : ControllerBase
@@ -27,6 +28,11 @@ namespace Donmee.WebApi.Controllers
         private readonly UserManager<Persistence.Models.User> _userManager;
         private readonly IConfiguration _configuration;
 
+        /// <summary>
+        /// Регистрация
+        /// </summary>
+        /// <param name="requestUser">Пользователь</param>
+        /// <returns>True, если пользователь успешно зарегистрировался, false - иначе</returns>
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] UserRegistrationDto requestUser)
@@ -65,13 +71,9 @@ namespace Donmee.WebApi.Controllers
 
                 if (isCreated.Succeeded)
                 {
-                    // Generate the token
-                    var token = GenerateJwtToken(newUser);
-
                     return Ok(new AuthResult()
                     {
                         Result = true,
-                        Token = token
                     });
                 }
 
@@ -88,8 +90,13 @@ namespace Donmee.WebApi.Controllers
             return BadRequest();
         }
 
-        [Route("Login")]
+        /// <summary>
+        /// Вход
+        /// </summary>
+        /// <param name="loginRequest">Почта и пароль</param>
+        /// <returns>Jwt-токен и ID пользователя, если вход выполнен успешно</returns>
         [HttpPost]
+        [Route("Login")]
         public async Task<IActionResult> Login([FromBody] UserLoginDto loginRequest)
         {
             if (ModelState.IsValid)
@@ -128,7 +135,8 @@ namespace Donmee.WebApi.Controllers
                 return Ok(new AuthResult()
                 {
                     Token = jwtToken,
-                    Result = true
+                    Result = true,
+                    UserId = existingUser.Id
                 });
             }
 
@@ -142,6 +150,11 @@ namespace Donmee.WebApi.Controllers
             });
         }
 
+        /// <summary>
+        /// Хэширование с помощью SHA-256
+        /// </summary>
+        /// <param name="source">Исходная строка</param>
+        /// <returns>Хэщ-код исходной строки</returns>
         private string HashCode(string source)
         {
             using (var sha256 = SHA256.Create())
@@ -155,6 +168,12 @@ namespace Donmee.WebApi.Controllers
                 return stringBuilder.ToString();
             }
         }
+
+        /// <summary>
+        /// Генерация JWT-токена для запрашиваемого пользователя
+        /// </summary>
+        /// <param name="user">Пользователь</param>
+        /// <returns>JWT-токен</returns>
         private string GenerateJwtToken(IdentityUser user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
@@ -170,7 +189,7 @@ namespace Donmee.WebApi.Controllers
                     new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToUniversalTime().ToString())
                 }),
 
-                Expires = DateTime.Now.AddHours(1),
+                Expires = DateTime.Now.AddDays(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
 
