@@ -29,7 +29,7 @@ namespace Donmee.WebApi.Controllers
         /// <returns>Активные желания других пользователей определённого типа</returns>
         [HttpGet]
         [Route("Wishes")]
-        public async Task<ActionResult<IEnumerable<Domain.Wish>>> Wishes(
+        public async Task<ActionResult<IEnumerable<Domain.Wish>>> GetWishes(
             [FromQuery] string userId,
             [FromQuery] WishType wishType)
         {
@@ -54,5 +54,48 @@ namespace Donmee.WebApi.Controllers
             return domainWishes;
         }
 
+        /// <summary>
+        /// Получить желания запрашивающего пользователя определенного статуса
+        /// </summary>
+        /// <param name="userId">ID пользователя</param>
+        /// <param name="wishStatus">Статус желание</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("MyWishes")]
+        public async Task<ActionResult<IEnumerable<Domain.Wish>>> GetWishes(
+            [FromQuery] string userId,
+            [FromQuery] WishStatus wishStatus)
+        {
+            var wishes = await _dbContext.Transaction
+                    .Where(trans =>
+                        trans.UserId == userId &&
+                        trans.WishId != null &&
+                        trans.TransactionType == TransactionType.Creating)
+                    .Select(tr => tr.Wish)
+                    .Where(wish => wish.WishStatus == wishStatus)
+                    .ToListAsync();
+
+            var domainWishes = new List<Domain.Wish>();
+            foreach (var wish in wishes)
+            {
+                domainWishes.Add(wish.ToDomain());
+            }
+
+            return domainWishes;
+        }
+
+        /// <summary>
+        /// Получить желание по Id
+        /// </summary>
+        /// <param name="id">ID желания</param>
+        /// <returns>Желание</returns>
+        [HttpGet]
+        [Route("Wish")]
+        public async Task<ActionResult<Domain.Wish>> GetWish([FromQuery] Guid id)
+        {
+            var wish = await _dbContext.Wish
+                    .FirstOrDefaultAsync(wish => wish.Id == id);
+            return wish.ToDomain();
+        }
     }
 }

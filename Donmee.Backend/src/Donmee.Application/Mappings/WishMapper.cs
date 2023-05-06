@@ -9,9 +9,11 @@
                 Id = wish.Id,
                 Name = wish.Name,
                 Description = wish.Description,
+                ImagePath = wish.ImagePath,
                 CurrentAmount = wish.CurrentAmount,
                 EndDate = wish.EndDate,
-                Goal = wish.Goal
+                Goal = wish.Goal,
+                WishType = wish.WishType
             };
         }
     }

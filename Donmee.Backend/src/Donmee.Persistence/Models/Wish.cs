@@ -5,6 +5,7 @@
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
+        public string ImagePath { get; set; }
         public int Goal { get; set; }
         public int CurrentAmount { get; set; } = 0;
         public WishType WishType { get; set; }
