@@ -62,6 +62,8 @@ namespace Donmee.WebApi.Controllers
         /// <param name="userId">ID пользователя</param>
         /// <param name="money">Сумма пополнения</param>
         /// <returns>Результат транзакции</returns>
+        [HttpPost]
+        [Route("Repllenishment")]
         public async Task<IActionResult> Replenishment(
             [FromQuery] string userId,
             [FromQuery] int money)
@@ -84,6 +86,15 @@ namespace Donmee.WebApi.Controllers
             });
         }
 
+        /// <summary>
+        /// Пожертвование
+        /// </summary>
+        /// <param name="userId">ID пользователя</param>
+        /// <param name="wishId">ID желания</param>
+        /// <param name="money">Сумма пожертвования</param>
+        /// <returns>Результат транзакции</returns>
+        [HttpPost]
+        [Route("Donate")]
         public async Task<IActionResult> Donate(
             [FromQuery] string userId,
             [FromQuery] Guid wishId,

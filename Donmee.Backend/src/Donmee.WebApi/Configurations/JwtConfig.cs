@@ -5,6 +5,9 @@
     /// </summary>
     public class JwtConfig
     {
+        /// <summary>
+        /// Секретный ключ для токена
+        /// </summary>
         public string Secret { get; set; }
     }
 }
