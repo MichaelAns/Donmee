@@ -78,7 +78,6 @@ public static class MauiProgram
 
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
     {
-		mauiAppBuilder.Services.AddSingleton<string[]>(services => new string[] { FileSystem.AppDataDirectory });
         mauiAppBuilder.Services.AddSingleton<INavigationService, MauiNavigationService>();
         mauiAppBuilder.Services.AddSingleton<ISettingsService, SettingsService>();
         mauiAppBuilder.Services.AddSingleton<IIdentityService, IdentityDatabaseService>();

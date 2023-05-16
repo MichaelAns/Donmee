@@ -2,7 +2,6 @@
 using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Wish;
-using Frontend.Persistance.Models;
 using System.Collections.ObjectModel;
 
 namespace Donmee.Client.ViewModels
@@ -21,7 +20,7 @@ namespace Donmee.Client.ViewModels
         {
             WishService.GetWishesAsync(
                 Guid.Parse(SettingsService.UserId), 
-                Frontend.Persistance.Models.Enums.WishType.Common)
+                WishType.Common)
                 .ContinueWith(
                 task =>
                 {

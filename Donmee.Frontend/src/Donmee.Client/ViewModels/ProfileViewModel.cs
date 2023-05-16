@@ -1,11 +1,8 @@
 ﻿using Donmee.Client.Services.Navigation;
 using Donmee.Client.Services.Settings;
-using Donmee.Client.Validation;
-using Donmee.Client.Validation.Rules;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Transaction;
 using Donmee.DataServices.User;
-using Frontend.Persistance.Models;
 
 namespace Donmee.Client.ViewModels
 {

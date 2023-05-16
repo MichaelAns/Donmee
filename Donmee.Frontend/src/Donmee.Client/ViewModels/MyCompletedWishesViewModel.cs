@@ -2,8 +2,6 @@
 using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Wish;
-using Frontend.Persistance.Models;
-using Frontend.Persistance.Models.Enums;
 using System.Collections.ObjectModel;
 
 namespace Donmee.Client.ViewModels

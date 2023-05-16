@@ -4,7 +4,6 @@ using Donmee.Client.Validation;
 using Donmee.Client.Validation.Rules;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Identity;
-using Frontend.Persistance.Models;
 using System.Diagnostics;
 
 namespace Donmee.Client.ViewModels

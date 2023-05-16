@@ -56,7 +56,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Donmee.DataServices\Donmee.DataServices.csproj" />
-	  <ProjectReference Include="..\Frontend.Persistance\Frontend.Persistance.csproj" />
+	  <ProjectReference Include="..\Donmee.Domain\Donmee.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -96,6 +96,10 @@
 	  <MauiXaml Update="Views\WishesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionDonmeeClientHideInfoBar="True" /></VisualStudio></ProjectExtensions>

@@ -2,6 +2,6 @@
 {
     public interface IUserService
     {
-        public Task<Frontend.Persistance.Models.User> GetUser(Guid userId);
+        public Task<Donmee.Domain.User> GetUser(Guid userId);
     }
 }

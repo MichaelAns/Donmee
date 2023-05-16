@@ -25,7 +25,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Donmee.DataServices\Donmee.DataServices.csproj" />
-    <ProjectReference Include="..\Frontend.Persistance\Frontend.Persistance.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Donmee\Database\" />
+    <Folder Include="Donmee\Services\Identity\" />
+    <Folder Include="Donmee\Services\Wish\" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@
             <!--IMAGE-->
             <Image
                 Grid.Row="0"
-                Source="dotnet_bot.svg"/>
+                Source="{Binding ImagePath}"/>
             <!--NAME-->
             <Label
                 Grid.Row="1"

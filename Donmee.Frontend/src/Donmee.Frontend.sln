@@ -11,14 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6C60E7B4-3BE7-409B-89D9-377F74162AF1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frontend.Persistance", "Frontend.Persistance\Frontend.Persistance.csproj", "{7ED98E44-1625-475F-B6F0-F66F91E99B6B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontendRepositoryUnitTests", "FrontendRepositoryUnitTests\FrontendRepositoryUnitTests.csproj", "{AD60BCF2-D0DA-43FE-A363-55CE32D0FFC6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{10759F1C-A9DC-4091-B822-064F317A60A3} = {10759F1C-A9DC-4091-B822-064F317A60A3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.DataServices", "Donmee.DataServices\Donmee.DataServices.csproj", "{10759F1C-A9DC-4091-B822-064F317A60A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Donmee.DataServices", "Donmee.DataServices\Donmee.DataServices.csproj", "{10759F1C-A9DC-4091-B822-064F317A60A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F0139B71-93F4-4C5C-85F7-C9443809CB66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donmee.Domain", "Donmee.Domain\Donmee.Domain.csproj", "{2C393901-8785-4C26-9766-E17395C53A86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +34,6 @@ Global
 		{61519300-3663-4C9F-86D2-F7113301DDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61519300-3663-4C9F-86D2-F7113301DDF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61519300-3663-4C9F-86D2-F7113301DDF7}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{7ED98E44-1625-475F-B6F0-F66F91E99B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ED98E44-1625-475F-B6F0-F66F91E99B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ED98E44-1625-475F-B6F0-F66F91E99B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ED98E44-1625-475F-B6F0-F66F91E99B6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD60BCF2-D0DA-43FE-A363-55CE32D0FFC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AD60BCF2-D0DA-43FE-A363-55CE32D0FFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD60BCF2-D0DA-43FE-A363-55CE32D0FFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,15 +42,19 @@ Global
 		{10759F1C-A9DC-4091-B822-064F317A60A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10759F1C-A9DC-4091-B822-064F317A60A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10759F1C-A9DC-4091-B822-064F317A60A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C393901-8785-4C26-9766-E17395C53A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C393901-8785-4C26-9766-E17395C53A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C393901-8785-4C26-9766-E17395C53A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C393901-8785-4C26-9766-E17395C53A86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{61519300-3663-4C9F-86D2-F7113301DDF7} = {132A6D8A-B580-4C46-AEE3-E97AE67FA669}
-		{7ED98E44-1625-475F-B6F0-F66F91E99B6B} = {0E9F11D8-B71C-460D-8AEE-3DFECD5C8A7C}
 		{AD60BCF2-D0DA-43FE-A363-55CE32D0FFC6} = {6C60E7B4-3BE7-409B-89D9-377F74162AF1}
 		{10759F1C-A9DC-4091-B822-064F317A60A3} = {0E9F11D8-B71C-460D-8AEE-3DFECD5C8A7C}
+		{2C393901-8785-4C26-9766-E17395C53A86} = {F0139B71-93F4-4C5C-85F7-C9443809CB66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}

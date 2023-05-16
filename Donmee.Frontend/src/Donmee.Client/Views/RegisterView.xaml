@@ -5,13 +5,15 @@
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Donmee.Client.Views.RegisterView"
              x:DataType="viewmodels:RegisterViewModel"
-             Title="Register">
+             Title="REGISTER">
     <VerticalStackLayout
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Enter your Email address:"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Email.Value}">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
@@ -20,8 +22,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Enter the password:"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             IsPassword="True"
             Text="{Binding Password.Value}">
             <Entry.Behaviors>
@@ -31,8 +35,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Repeat the password:"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             IsPassword="True"
             Text="{Binding RepeatPassword.Value}">
             <Entry.Behaviors>
@@ -42,8 +48,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Enter your phone number:"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Phone.Value}">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
@@ -52,8 +60,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Enter your name:"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Name.Value}">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
@@ -62,8 +72,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Enter your second name:"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             Text="{Binding SecondName.Value}">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
@@ -72,6 +84,7 @@
             </Entry.Behaviors>
         </Entry>
         <Button 
+            Style="{StaticResource AuthButtonStyle}"
             Text="Register"
             Command="{Binding SignUpCommand}"/>
         <Label

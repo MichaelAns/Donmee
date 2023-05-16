@@ -10,10 +10,10 @@
         public string AuthAccessToken 
         { 
             get => Preferences.Get(AccessToken, _authAccessToken); 
-            set => Preferences.Set(AccessToken, value); 
+            set => Preferences.Set(AccessToken, value);
         }
 
-        public string UserId 
+        public string UserId
         {
             get => Preferences.Get(Id, _userId);
             set => Preferences.Set(Id, value);

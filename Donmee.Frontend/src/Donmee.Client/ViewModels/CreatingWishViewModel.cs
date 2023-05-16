@@ -4,9 +4,6 @@ using Donmee.Client.Validation;
 using Donmee.Client.Validation.Rules;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Transaction;
-using Frontend.Persistance.Models;
-using Frontend.Persistance.Models.Enums;
-using System.ComponentModel;
 
 namespace Donmee.Client.ViewModels
 {

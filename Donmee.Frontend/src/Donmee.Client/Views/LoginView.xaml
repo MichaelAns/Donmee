@@ -5,31 +5,20 @@
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Donmee.Client.Views.LoginView"
              x:DataType="viewmodels:LoginViewModel"
-             Title="Login">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="HeaderLabelStyle"
-                TargetType="{x:Type Label}">
-                <Setter Property="FontFamily"
-                    Value="{StaticResource MontserratRegular}" />
-                <Setter Property="FontSize"
-                    Value="Medium" />
-                <Setter Property="TextColor"
-                    Value="{StaticResource Black}" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+             Title="LOGIN">
     <VerticalStackLayout 
         HorizontalOptions="Center"
         VerticalOptions="Center"
-        WidthRequest="150">
+        WidthRequest="170">
         <Label
             Text="Invalid Email or Password."
             BackgroundColor="{StaticResource ErrorColor}"
             IsVisible="{Binding IsSignInError}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Email"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Email.Value, Mode=TwoWay}">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
@@ -38,8 +27,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Password"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             IsPassword="True"
             Text="{Binding Password.Value,Mode=TwoWay}">
             <Entry.Behaviors>
@@ -50,6 +41,7 @@
         </Entry>
         <!--LOGIN BUTTON-->
         <Button
+            Style="{StaticResource AuthButtonStyle}"
             Text="Login"
             Command="{Binding SignInCommand}"/>
     </VerticalStackLayout>
