@@ -425,8 +425,16 @@
                     Value="Medium" />
         <Setter Property="TextColor"
                     Value="White"/>
-        <Setter Property="Padding"
-                    Value="0, 0"/>
+        <Setter Property="WidthRequest"
+                    Value="200"/>
+    </Style>
+
+    <Style x:Key="DetailsImageStyle"
+                TargetType="{x:Type Image}">
+        <Setter Property="HeightRequest"
+                    Value="200" />
+        <Setter Property="Margin"
+                    Value="0, 0, 0, 10"/>
     </Style>
 
 </ResourceDictionary>

@@ -31,7 +31,7 @@ namespace Donmee.Client.ViewModels
         {
             try
             {
-                var response = await IdentityService.Identity(Email.Value, Password.Value);
+                var response = await IdentityService.Identity(this.Email.Value, Password.Value);
                 SettingsService.UserId = response;
                 IsSignInError = false;
                 await NavigationService.NavigateToAsync("//Main/Wishes/CommonWishes");
@@ -50,6 +50,7 @@ namespace Donmee.Client.ViewModels
 
         [ObservableProperty]
         private ValidatableObject<string> _email = new();
+
         [ObservableProperty]
         private ValidatableObject<string> _password = new();
 

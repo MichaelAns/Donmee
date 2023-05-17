@@ -4,17 +4,19 @@
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.MyWishDetailsView"
              x:DataType="vm:MyWishDetailsViewModel"
-             Title="MyWishDetailsView">
+             Title="{Binding Wish.Name}">
     <VerticalStackLayout
         VerticalOptions="Center"
         HorizontalOptions="Center">
         <Image
-            Source="dotnet_bot.svg"/>
+            Style="{StaticResource DetailsImageStyle}"
+            Source="{Binding Wish.ImagePath}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
+            FontAttributes="Bold"
             Text="{Binding Wish.Name}"/>
         <Label
-            Text="{Binding Wish.Description}"
-            />
+            Text="{Binding Wish.Description}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -22,16 +24,21 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label
+                Style="{StaticResource AuthLabelStyle}"
                 Grid.Column="0"
                 Text="{Binding Wish.CurrentAmount}"/>
             <Label
+                Style="{StaticResource AuthLabelStyle}"
                 Grid.Column="1"
                 Text=" \ "/>
             <Label
+                Style="{StaticResource AuthLabelStyle}"
                 Grid.Column="2"
                 Text="{Binding Wish.Goal}"/>
         </Grid>        
         <Label
+            Margin="0, 15"
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding Wish.EndDate}"/>
     </VerticalStackLayout>
 </ContentPage>

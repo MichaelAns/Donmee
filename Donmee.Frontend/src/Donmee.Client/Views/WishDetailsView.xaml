@@ -10,20 +10,40 @@
         VerticalOptions="Center"
         HorizontalOptions="Center">
         <Image
-            Source="dotnet_bot.svg"/>
+            Style="{StaticResource DetailsImageStyle}"
+            Source="{Binding Wish.ImagePath}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
+            FontAttributes="Bold"
             Text="{Binding Wish.Name}"/>
         <Label
-            Text="{Binding Wish.Description}"
-            />
-        <Label
-            Text="{Binding Wish.CurrentAmount}"/>
-        <Label
-            Text="{Binding Wish.Goal}"/>
+            Text="{Binding Wish.Description}" />
+        <Grid WidthRequest="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Style="{StaticResource AuthLabelStyle}"
+                Grid.Column="0"
+                Text="{Binding Wish.CurrentAmount}"/>
+            <Label                
+                Style="{StaticResource AuthLabelStyle}"
+                Grid.Column="1"
+                Text=" \ "/>
+            <Label
+                Style="{StaticResource AuthLabelStyle}"
+                Grid.Column="2"
+                Text="{Binding Wish.Goal}"/>
+        </Grid>
         <Entry
+            Style="{StaticResource AuthLabelStyle}"
+            WidthRequest="75"
+            HorizontalTextAlignment="Center"
             Text="{Binding Money}"
             Keyboard="Numeric"
-            Margin="0, 50, 0, 0">
+            Margin="0, 30, 0, 15">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
                     EventName="TextChanged"
@@ -31,6 +51,7 @@
             </Entry.Behaviors>
         </Entry>        
         <Button
+            Style="{StaticResource AuthButtonStyle}"            
             Text="Donate"
             Command="{Binding DonateCommand}"/>
         <Label

@@ -5,11 +5,11 @@
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.MyActiveWishesView"
              x:DataType="vm:MyActiveWishesViewModel"
-             Title="Active">
+             Title="MY WISHES">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <CollectionView
             Grid.Row="0"
@@ -25,6 +25,8 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button
+            FontSize="Medium"
+            
             Text="Create"
             Grid.Row="1"
             Command="{Binding CreateWishCommand}"/>

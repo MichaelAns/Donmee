@@ -14,7 +14,7 @@ namespace Donmee.Client.ViewModels
             IWishService wishService) : base(navigationService, settingsService)
         {
             WishService = wishService;
-            GetWishes();
+            //GetWishes();
         }
 
 
