@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              x:Class="Donmee.Client.Views.MyCompletedWishesView"
              x:DataType="vm:MyCompletedWishesViewModel"
-             Title="MyCompletedWishesView">
+             Title="COMPLETED WISHES">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

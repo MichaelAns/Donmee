@@ -34,7 +34,8 @@ namespace Donmee.Client.ViewModels
                     Name = this.Name.Value,
                     Description = this.Description.Value,
                     Goal = this.Goal.Value,
-                    WishType = this.SelectedWishType
+                    WishType = this.SelectedWishType,
+                    ImagePath = this.SelectedImagePath
                 };
 
                 await TransactionService.CreatingTransaction(
@@ -78,6 +79,19 @@ namespace Donmee.Client.ViewModels
 
         [ObservableProperty]
         private WishType _selectedWishType = WishType.Common;
+
+        [ObservableProperty]
+        private string _selectedImagePath = ImagePaths.Ball;
+
+        [ObservableProperty]
+        private List<string> _images = new List<string>()
+        {
+            ImagePaths.Ball,
+            ImagePaths.Balloons,
+            ImagePaths.Pc,
+            ImagePaths.Pizza,
+            ImagePaths.Smartphone
+        };
 
 
         // Validation

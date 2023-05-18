@@ -17,6 +17,8 @@
             FontAttributes="Bold"
             Text="{Binding Wish.Name}"/>
         <Label
+            Margin="20"
+            FontSize="Small"
             Text="{Binding Wish.Description}" />
         <Grid WidthRequest="200">
             <Grid.ColumnDefinitions>

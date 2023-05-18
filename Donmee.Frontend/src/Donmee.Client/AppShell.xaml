@@ -25,6 +25,7 @@
         Route="Main">
         <Tab 
             Title="Other's"
+            Icon="money.png"
             Route="Wishes">
             <ShellContent 
                 Title="Common"
@@ -37,7 +38,8 @@
         </Tab>
         <Tab 
             Title="My"
-            Route="MyWishes">
+            Route="MyWishes"
+            Icon="heart.png">
             <ShellContent Title="Active"
                           Route="ActiveWishes"
                           ContentTemplate="{DataTemplate views:MyActiveWishesView}"/>
@@ -47,6 +49,7 @@
         </Tab>
         <Tab 
             Title="Profile"
+            Icon="profile.png"
             Route="Options">
             <ShellContent Title="Profile"
                           Route="Profile" 

@@ -10,10 +10,13 @@
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Balance:"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding User.Balance}"/>
         <Entry
+            Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Replenish}"
             Keyboard="Numeric">
             <Entry.Behaviors>
@@ -23,28 +26,41 @@
             </Entry.Behaviors>
         </Entry>
         <Button 
+            FontSize="Medium"
+            TextColor="White"
+            
             Text="Replenish"
             Command="{Binding ReplenishmentCommand}"
             Margin="0, 30"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Email address:"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding User.Email}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Password:"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding User.Password}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Phone number:"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding User.Phone}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Name:"/>
         <Label 
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding User.Name}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Second name:"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="{Binding User.SecondName}"/>        
     </VerticalStackLayout>
 </ContentPage>

@@ -8,8 +8,8 @@
              Title="Blitz">
     <Grid>
         <CollectionView
-            SelectionMode="Single"
-            ItemsSource="{Binding Wishes, Mode=OneTime}">  
+            SelectionMode="None"
+            ItemsSource="{Binding Wishes}">  
             <!--TEMPLATE-->
             <CollectionView.ItemTemplate>
                 <DataTemplate>

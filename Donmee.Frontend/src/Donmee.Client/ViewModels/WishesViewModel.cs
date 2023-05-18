@@ -34,6 +34,7 @@ namespace Donmee.Client.ViewModels
             new Wish()
             {
                 Id = new Guid(),
+                Description = "Очень большое описание этого желание. Много написано, очень написано. Интересно, что получится из этого",
                 Name = "Пицца Spar",
                 Goal = 100,
                 CurrentAmount = 0,

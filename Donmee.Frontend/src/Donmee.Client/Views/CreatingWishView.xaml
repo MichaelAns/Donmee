@@ -10,13 +10,14 @@
         VerticalOptions="Center"
         HorizontalOptions="Center">
         <Image
-            Source="wish.jpeg"
-            HeightRequest="50"/>
+            Style="{StaticResource DetailsImageStyle}"
+            Source="{Binding SelectedImagePath}"/>
         <Label
             IsVisible="{Binding IsError}"
             BackgroundColor="{StaticResource ErrorColor}"
             Text="{Binding ErrorLabel}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Name:"/>
         <Entry
             Text="{Binding Name.Value}">
@@ -27,6 +28,7 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Description:"/>
         <Entry
             Text="{Binding Description.Value}">
@@ -37,8 +39,10 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Goal:"/>
         <Entry
+            
             Text="{Binding Goal.Value}"
             Keyboard="Numeric">
             <Entry.Behaviors>
@@ -48,11 +52,19 @@
             </Entry.Behaviors>
         </Entry>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
             Text="Wish's type:"/>
         <Picker
             SelectedItem="{Binding SelectedWishType}"
             ItemsSource="{Binding WishTypes}"/>
+        <Label
+            Style="{StaticResource AuthLabelStyle}"
+            Text="Image:"/>
+        <Picker
+            SelectedItem="{Binding SelectedImagePath}"
+            ItemsSource="{Binding Images}"/>
         <Button
+            Style="{StaticResource AuthButtonStyle}"
             Margin="0, 30"
             Text="Create"
             Command="{Binding CreateCommand}"/>

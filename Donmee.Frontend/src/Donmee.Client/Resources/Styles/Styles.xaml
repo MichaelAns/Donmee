@@ -419,6 +419,16 @@
                     Value="0, 10"/>
     </Style>
 
+    <Style x:Key="CreateWishEntryStyle"
+                TargetType="{x:Type Entry}">
+        <Setter Property="FontSize"
+                    Value="Default" />
+        <Setter Property="WidthRequest"
+                    Value="200"/>
+        <Setter Property="Margin"
+                    Value="0, 10"/>
+    </Style>
+
     <Style x:Key="AuthButtonStyle"
                 TargetType="{x:Type Button}">
         <Setter Property="FontSize"

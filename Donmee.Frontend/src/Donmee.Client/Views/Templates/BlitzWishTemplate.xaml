@@ -12,15 +12,26 @@
             <!--IMAGE-->
             <Image
                 Grid.Row="0"
-                Source="dotnet_bot.svg"/>
+                Source="{Binding ImagePath}"/>
             <!--NAME-->
             <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                Margin="0, 15"
+                
                 Grid.Row="1"
-                Text="{Binding Name, Mode=OneTime}"/>
+                Text="{Binding Name}"/>
             <Button
+                FontSize="Large"
+                Margin="0, 0, 0, 15"
+                
                 Grid.Row="2"
                 Text="Donate"
                 Command="{Binding DonateCommand}"/>
+            <Line 
+                Stroke="black"
+                X1="500"/>
         </Grid>
     </ContentView.Content>
 </ContentView>
