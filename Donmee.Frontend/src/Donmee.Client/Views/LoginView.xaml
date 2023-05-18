@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Donmee.Client.ViewModels"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.LoginView"
              x:DataType="viewmodels:LoginViewModel"
-             Title="LOGIN">
+             Title="{loc:Localize LoginTitle}">
     <VerticalStackLayout 
         HorizontalOptions="Center"
         VerticalOptions="Center"
@@ -16,7 +17,7 @@
             IsVisible="{Binding IsSignInError}"/>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Email"/>
+            Text="{loc:Localize Email}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Email.Value, Mode=TwoWay}">
@@ -28,7 +29,7 @@
         </Entry>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Password"/>
+            Text="{loc:Localize Password}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             IsPassword="True"
@@ -42,7 +43,7 @@
         <!--LOGIN BUTTON-->
         <Button
             Style="{StaticResource AuthButtonStyle}"
-            Text="Login"
+            Text="{loc:Localize Login}"
             Command="{Binding SignInCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -27,10 +27,11 @@ public static class MauiProgram
 			.RegisterViewModels()
 			.RegisterViews()
 			.RegisterServices();
-		
+
+        builder.Services.AddLocalization();
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();

@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Donmee.Client.ViewModels"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.RegisterView"
              x:DataType="viewmodels:RegisterViewModel"
-             Title="REGISTER">
+             Title="{loc:Localize RegisterTitle}">
     <VerticalStackLayout
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Enter your Email address:"/>
+            Text="{loc:Localize RegEmail}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Email.Value}">
@@ -23,7 +24,7 @@
         </Entry>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Enter the password:"/>
+            Text="{loc:Localize RegPassword}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             IsPassword="True"
@@ -36,7 +37,7 @@
         </Entry>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Repeat the password:"/>
+            Text="{loc:Localize RegPasswordRepeat}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             IsPassword="True"
@@ -49,7 +50,7 @@
         </Entry>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Enter your phone number:"/>
+            Text="{loc:Localize RegPhone}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Phone.Value}">
@@ -61,7 +62,7 @@
         </Entry>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Enter your name:"/>
+            Text="{loc:Localize RegName}"/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             Text="{Binding Name.Value}">
@@ -73,7 +74,7 @@
         </Entry>
         <Label
             Style="{StaticResource AuthLabelStyle}"
-            Text="Enter your second name:"/>
+            Text=""/>
         <Entry
             Style="{StaticResource AuthEntryStyle}"
             Text="{Binding SecondName.Value}">
@@ -85,7 +86,7 @@
         </Entry>
         <Button 
             Style="{StaticResource AuthButtonStyle}"
-            Text="Register"
+            Text="{loc:Localize Register}"
             Command="{Binding SignUpCommand}"/>
         <Label
             Text="{Binding ErrorLabel}"
