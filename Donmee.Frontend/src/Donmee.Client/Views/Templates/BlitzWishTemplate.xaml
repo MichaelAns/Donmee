@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.Templates.BlitzWishTemplate">
     <ContentView.Content>
         <Grid>
@@ -12,15 +13,26 @@
             <!--IMAGE-->
             <Image
                 Grid.Row="0"
-                Source="dotnet_bot.svg"/>
+                Source="{Binding ImagePath}"/>
             <!--NAME-->
             <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                Margin="0, 15"
+                
                 Grid.Row="1"
-                Text="{Binding Name, Mode=OneTime}"/>
+                Text="{Binding Name}"/>
             <Button
+                FontSize="Large"
+                Margin="0, 0, 0, 15"
+                
                 Grid.Row="2"
-                Text="Donate"
+                Text="{loc:Localize Donate}"
                 Command="{Binding DonateCommand}"/>
+            <Line 
+                Stroke="black"
+                X1="500"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

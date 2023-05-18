@@ -2,7 +2,6 @@
 using Donmee.Client.Services.Settings;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Wish;
-using Frontend.Persistance.Models;
 
 namespace Donmee.Client.ViewModels
 {

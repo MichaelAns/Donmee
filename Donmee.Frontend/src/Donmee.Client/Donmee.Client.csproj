@@ -12,10 +12,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Donmee.Client</ApplicationTitle>
+		<ApplicationTitle>Donmee</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.donmee.client</ApplicationId>
+		<ApplicationId>com.megalul.donmee.client</ApplicationId>
 		<ApplicationIdGuid>928f3f0e-4cc7-49aa-ba04-d8ff6ab827c4</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -35,7 +35,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -51,12 +51,13 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.5" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Donmee.DataServices\Donmee.DataServices.csproj" />
-	  <ProjectReference Include="..\Frontend.Persistance\Frontend.Persistance.csproj" />
+	  <ProjectReference Include="..\Donmee.Domain\Donmee.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -96,6 +97,34 @@
 	  <MauiXaml Update="Views\WishesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\Strings\AppStrings.ru.Designer.cs">
+	    <DependentUpon>AppStrings.ru.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Resources\Strings\AppStrings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppStrings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Strings\AppStrings.ru.resx">
+	    <LastGenOutput>AppStrings.ru.Designer.cs</LastGenOutput>
+	    <Generator>ResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Strings\AppStrings.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AppStrings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionDonmeeClientHideInfoBar="True" /></VisualStudio></ProjectExtensions>

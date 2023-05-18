@@ -401,5 +401,50 @@
         <Setter Property="UnselectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray950}}" />
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
+    
+    <!--USER'S-->
+    <Style x:Key="AuthLabelStyle"
+                TargetType="{x:Type Label}">
+        <Setter Property="FontSize"
+                    Value="Medium" />
+        <Setter Property="HorizontalOptions"
+                    Value="Center" />
+    </Style>
+
+    <Style x:Key="AuthEntryStyle"
+                TargetType="{x:Type Entry}">
+        <Setter Property="FontSize"
+                    Value="Default" />
+        <Setter Property="Margin"
+                    Value="0, 10"/>
+    </Style>
+
+    <Style x:Key="CreateWishEntryStyle"
+                TargetType="{x:Type Entry}">
+        <Setter Property="FontSize"
+                    Value="Default" />
+        <Setter Property="WidthRequest"
+                    Value="200"/>
+        <Setter Property="Margin"
+                    Value="0, 10"/>
+    </Style>
+
+    <Style x:Key="AuthButtonStyle"
+                TargetType="{x:Type Button}">
+        <Setter Property="FontSize"
+                    Value="Medium" />
+        <Setter Property="TextColor"
+                    Value="White"/>
+        <Setter Property="WidthRequest"
+                    Value="200"/>
+    </Style>
+
+    <Style x:Key="DetailsImageStyle"
+                TargetType="{x:Type Image}">
+        <Setter Property="HeightRequest"
+                    Value="200" />
+        <Setter Property="Margin"
+                    Value="0, 0, 0, 10"/>
+    </Style>
 
 </ResourceDictionary>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.WishDetailsView"
              x:DataType="vm:WishDetailsViewModel"
              Title="{Binding Wish.Name}">
@@ -10,20 +11,42 @@
         VerticalOptions="Center"
         HorizontalOptions="Center">
         <Image
-            Source="dotnet_bot.svg"/>
+            Style="{StaticResource DetailsImageStyle}"
+            Source="{Binding Wish.ImagePath}"/>
         <Label
+            Style="{StaticResource AuthLabelStyle}"
+            FontAttributes="Bold"
             Text="{Binding Wish.Name}"/>
         <Label
-            Text="{Binding Wish.Description}"
-            />
-        <Label
-            Text="{Binding Wish.CurrentAmount}"/>
-        <Label
-            Text="{Binding Wish.Goal}"/>
+            Margin="20"
+            FontSize="Small"
+            Text="{Binding Wish.Description}" />
+        <Grid WidthRequest="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Style="{StaticResource AuthLabelStyle}"
+                Grid.Column="0"
+                Text="{Binding Wish.CurrentAmount}"/>
+            <Label                
+                Style="{StaticResource AuthLabelStyle}"
+                Grid.Column="1"
+                Text=" \ "/>
+            <Label
+                Style="{StaticResource AuthLabelStyle}"
+                Grid.Column="2"
+                Text="{Binding Wish.Goal}"/>
+        </Grid>
         <Entry
+            Style="{StaticResource AuthLabelStyle}"
+            WidthRequest="75"
+            HorizontalTextAlignment="Center"
             Text="{Binding Money}"
             Keyboard="Numeric"
-            Margin="0, 50, 0, 0">
+            Margin="0, 30, 0, 15">
             <Entry.Behaviors>
                 <mct:EventToCommandBehavior
                     EventName="TextChanged"
@@ -31,7 +54,8 @@
             </Entry.Behaviors>
         </Entry>        
         <Button
-            Text="Donate"
+            Style="{StaticResource AuthButtonStyle}"            
+            Text="{loc:Localize Donate}"
             Command="{Binding DonateCommand}"/>
         <Label
             Text="{Binding ErrorMessage}"

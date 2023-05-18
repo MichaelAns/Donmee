@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:temp="clr-namespace:Donmee.Client.Views.Templates"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.MyActiveWishesView"
              x:DataType="vm:MyActiveWishesViewModel"
-             Title="Active">
+             Title="{loc:Localize ActiveWishesTitle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <CollectionView
             Grid.Row="0"
@@ -25,7 +26,9 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button
-            Text="Create"
+            FontSize="Medium"
+            
+            Text="{loc:Localize Create}"
             Grid.Row="1"
             Command="{Binding CreateWishCommand}"/>
     </Grid>

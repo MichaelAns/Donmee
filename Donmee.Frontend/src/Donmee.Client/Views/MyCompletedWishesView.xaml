@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:temp="clr-namespace:Donmee.Client.Views.Templates"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.MyCompletedWishesView"
              x:DataType="vm:MyCompletedWishesViewModel"
-             Title="MyCompletedWishesView">
+             Title="{loc:Localize CompletedWishesTitle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

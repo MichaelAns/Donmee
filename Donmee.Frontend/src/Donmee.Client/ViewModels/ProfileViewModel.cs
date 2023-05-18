@@ -1,11 +1,8 @@
 ﻿using Donmee.Client.Services.Navigation;
 using Donmee.Client.Services.Settings;
-using Donmee.Client.Validation;
-using Donmee.Client.Validation.Rules;
 using Donmee.Client.ViewModels.Base;
 using Donmee.DataServices.Transaction;
 using Donmee.DataServices.User;
-using Frontend.Persistance.Models;
 
 namespace Donmee.Client.ViewModels
 {
@@ -20,7 +17,7 @@ namespace Donmee.Client.ViewModels
             TransactionService = transactionService;
             UserService = userService;
             ReplenishmentCommand = new AsyncRelayCommand(ReplenishExecute, ReplenishCanExecute);
-            Load();
+            // Load();
         }
 
         public IUserService UserService { get; private set; }
@@ -28,11 +25,11 @@ namespace Donmee.Client.ViewModels
 
         private void Load()
         {
-            UserService.GetUser(Guid.Parse(SettingsService.UserId)).ContinueWith(
+            /*UserService.GetUser(Guid.Parse(SettingsService.UserId)).ContinueWith(
                 task =>
                 {
                     User = task.Result;
-                });
+                });*/
         }
 
 
@@ -49,7 +46,7 @@ namespace Donmee.Client.ViewModels
         private bool ReplenishCanExecute() => Replenish > 0;
         private async Task ReplenishExecute()
         {
-            try
+            /*try
             {
                 await TransactionService.ReplenishmentTransaction(
                     Guid.Parse(SettingsService.UserId),
@@ -61,7 +58,7 @@ namespace Donmee.Client.ViewModels
             catch (Exception)
             {
 
-            }
+            }*/
         }
                 
         [RelayCommand]

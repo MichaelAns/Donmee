@@ -3,21 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Donmee.Client.ViewModels"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:loc="clr-namespace:Donmee.Client.Localization"
              x:Class="Donmee.Client.Views.CreatingWishView"
              x:DataType="vm:CreatingWishViewModel"
-             Title="Creating a wish">
+             Title="{loc:Localize CreateTitle}">
     <VerticalStackLayout
         VerticalOptions="Center"
         HorizontalOptions="Center">
         <Image
-            Source="wish.jpeg"
-            HeightRequest="50"/>
+            Style="{StaticResource DetailsImageStyle}"
+            Source="{Binding SelectedImagePath}"/>
         <Label
             IsVisible="{Binding IsError}"
             BackgroundColor="{StaticResource ErrorColor}"
             Text="{Binding ErrorLabel}"/>
         <Label
-            Text="Name:"/>
+            Style="{StaticResource AuthLabelStyle}"
+            Text="{loc:Localize CreateName}"/>
         <Entry
             Text="{Binding Name.Value}">
             <Entry.Behaviors>
@@ -27,7 +29,8 @@
             </Entry.Behaviors>
         </Entry>
         <Label
-            Text="Description:"/>
+            Style="{StaticResource AuthLabelStyle}"
+            Text="{loc:Localize CreateDescription}"/>
         <Entry
             Text="{Binding Description.Value}">
             <Entry.Behaviors>
@@ -37,8 +40,9 @@
             </Entry.Behaviors>
         </Entry>
         <Label
-            Text="Goal:"/>
-        <Entry
+            Style="{StaticResource AuthLabelStyle}"
+            Text="{loc:Localize CreateGoal}"/>
+        <Entry            
             Text="{Binding Goal.Value}"
             Keyboard="Numeric">
             <Entry.Behaviors>
@@ -48,13 +52,21 @@
             </Entry.Behaviors>
         </Entry>
         <Label
-            Text="Wish's type:"/>
+            Style="{StaticResource AuthLabelStyle}"
+            Text="{loc:Localize CreateWishType}"/>
         <Picker
             SelectedItem="{Binding SelectedWishType}"
             ItemsSource="{Binding WishTypes}"/>
+        <Label
+            Style="{StaticResource AuthLabelStyle}"
+            Text="{loc:Localize CreateImage}"/>
+        <Picker
+            SelectedItem="{Binding SelectedImagePath}"
+            ItemsSource="{Binding Images}"/>
         <Button
+            Style="{StaticResource AuthButtonStyle}"
             Margin="0, 30"
-            Text="Create"
+            Text="{loc:Localize Create}"
             Command="{Binding CreateCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

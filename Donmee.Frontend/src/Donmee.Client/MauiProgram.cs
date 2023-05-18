@@ -27,10 +27,11 @@ public static class MauiProgram
 			.RegisterViewModels()
 			.RegisterViews()
 			.RegisterServices();
-		
+
+        builder.Services.AddLocalization();
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
@@ -78,7 +79,6 @@ public static class MauiProgram
 
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
     {
-		mauiAppBuilder.Services.AddSingleton<string[]>(services => new string[] { FileSystem.AppDataDirectory });
         mauiAppBuilder.Services.AddSingleton<INavigationService, MauiNavigationService>();
         mauiAppBuilder.Services.AddSingleton<ISettingsService, SettingsService>();
         mauiAppBuilder.Services.AddSingleton<IIdentityService, IdentityDatabaseService>();
