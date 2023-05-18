@@ -12,10 +12,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Donmee.Client</ApplicationTitle>
+		<ApplicationTitle>Donmee</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.donmee.client</ApplicationId>
+		<ApplicationId>com.megalul.donmee.client</ApplicationId>
 		<ApplicationIdGuid>928f3f0e-4cc7-49aa-ba04-d8ff6ab827c4</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -35,7 +35,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
