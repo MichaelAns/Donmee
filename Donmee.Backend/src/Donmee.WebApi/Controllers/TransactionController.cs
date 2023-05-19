@@ -2,6 +2,7 @@
 using Donmee.Persistence.Models;
 using Donmee.Persistence.Models.Enums;
 using Donmee.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ namespace Donmee.WebApi.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TransactionController : ControllerBase
     {
         public TransactionController(DonmeeDbContext dbContext)
