@@ -1,12 +1,14 @@
 ﻿using Donmee.Persistence.Models;
 using Donmee.WebApi.Models;
 using Donmee.WebApi.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 
 namespace Donmee.WebApi.Controllers
@@ -14,7 +16,7 @@ namespace Donmee.WebApi.Controllers
     /// <summary>
     /// Вход и регистрация пользователя
     /// </summary>
-    [Route("api/[controller]")] 
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -37,43 +39,55 @@ namespace Donmee.WebApi.Controllers
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] UserRegistrationDto requestUser)
         {
-            // Validate the incoming request
-            if (ModelState.IsValid)
+            try
             {
-                // Check the email existing
-                var userExist = await _userManager.FindByEmailAsync(requestUser.Email);
-
-                if (userExist != null)
+                // Validate the incoming request
+                if (ModelState.IsValid)
                 {
+                    // Check the email existing
+                    var userExist = await _userManager.FindByEmailAsync(requestUser.Email);
+
+                    if (userExist != null)
+                    {
+                        return BadRequest(new AuthResult()
+                        {
+                            Result = false,
+                            Errors = new List<string>()
+                        {
+                            "Email already exists"
+                        }
+                        });
+                    }
+
+                    // Create a user
+                    string passwordHash = HashCode(requestUser.Password);
+
+                    var newUser = new Persistence.Models.User()
+                    {
+                        UserName = requestUser.Name,
+                        SecondName = requestUser.SecondName,
+                        Email = requestUser.Email,
+                        PhoneNumber = requestUser.Phone,
+                        PasswordHash = passwordHash
+                    };
+
+                    var isCreated = await _userManager.CreateAsync(newUser, passwordHash);
+
+                    if (isCreated.Succeeded)
+                    {
+                        return Ok(new AuthResult()
+                        {
+                            Result = true,
+                        });
+                    }
+
                     return BadRequest(new AuthResult()
                     {
                         Result = false,
                         Errors = new List<string>()
                         {
-                            "Email already exists"
+                            "Server error"
                         }
-                    });
-                }
-
-                // Create a user
-                string passwordHash = HashCode(requestUser.Password);                
-
-                var newUser = new Persistence.Models.User()
-                {
-                    UserName = requestUser.Name,
-                    SecondName = requestUser.SecondName,
-                    Email = requestUser.Email,
-                    PhoneNumber = requestUser.Phone,
-                    PasswordHash = passwordHash
-                };
-
-                var isCreated = await _userManager.CreateAsync(newUser, passwordHash);
-
-                if (isCreated.Succeeded)
-                {
-                    return Ok(new AuthResult()
-                    {
-                        Result = true,
                     });
                 }
 
@@ -82,12 +96,22 @@ namespace Donmee.WebApi.Controllers
                     Result = false,
                     Errors = new List<string>()
                         {
-                            "Server error"
+                            "Invalid data"
                         }
                 });
             }
-
-            return BadRequest();
+            catch (Exception exc)
+            {
+                return BadRequest(new AuthResult()
+                {
+                    Result = false,
+                    Errors = new List<string>()
+                        {
+                            exc.Message
+                        }
+                });
+            }
+            
         }
 
         /// <summary>
@@ -99,55 +123,118 @@ namespace Donmee.WebApi.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] UserLoginDto loginRequest)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var existingUser = await _userManager.FindByEmailAsync(loginRequest.Email);
-
-                if(existingUser == null)
+                if (ModelState.IsValid)
                 {
-                    return BadRequest(new AuthResult()
+                    var existingUser = await _userManager.FindByEmailAsync(loginRequest.Email);
+
+                    if (existingUser == null)
                     {
-                        Errors = new List<string>()
+                        return BadRequest(new AuthResult()
+                        {
+                            Errors = new List<string>()
                         {
                             "Invalid payload"
                         },
-                        Result = false
-                    });
-                }
+                            Result = false
+                        });
+                    }
 
-                var passwordHash = HashCode(loginRequest.Password);
-                var isCorrect = await _userManager.CheckPasswordAsync(existingUser, passwordHash);
+                    var passwordHash = HashCode(loginRequest.Password);
+                    var isCorrect = await _userManager.CheckPasswordAsync(existingUser, passwordHash);
 
-                if (!isCorrect)
-                {
-                    return BadRequest(new AuthResult()
+                    if (!isCorrect)
                     {
-                        Errors = new List<string>()
+                        return BadRequest(new AuthResult()
+                        {
+                            Errors = new List<string>()
                         {
                             "Invalid credentials"
                         },
-                        Result = false
+                            Result = false
+                        });
+                    }
+
+                    var jwtToken = GenerateJwtToken(existingUser);
+
+                    return Ok(new AuthResult()
+                    {
+                        Token = jwtToken,
+                        Result = true,
+                        UserId = existingUser.Id
                     });
                 }
 
-                var jwtToken = GenerateJwtToken(existingUser);
-
-                return Ok(new AuthResult()
+                return BadRequest(new AuthResult()
                 {
-                    Token = jwtToken,
-                    Result = true,
-                    UserId = existingUser.Id
-                });
-            }
-
-            return BadRequest(new AuthResult()
-            {
-                Errors = new List<string>()
+                    Errors = new List<string>()
                     {
                         "Invalid creditionals"
                     },
-                Result = false
-            });
+                    Result = false
+                });
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(new AuthResult()
+                {
+                    Errors = new List<string>()
+                    {
+                        exc.Message
+                    },
+                    Result = false
+                });
+            }
+            
+        }
+
+        /// <summary>
+        /// Проверка JWT-токена на валидность
+        /// </summary>
+        /// <param name="token">JWT-токен</param>
+        /// <returns>AuthResult: true, если токен валидный, false - иначе</returns>
+        [HttpGet]
+        [Route("Validate")]
+        public async Task<IActionResult> Validate([FromQuery] string token)
+        {
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var validationParameters = GetValidationParameters();
+
+                SecurityToken validatedToken;
+                IPrincipal principal = tokenHandler.ValidateToken(token, validationParameters, out validatedToken);
+
+                if (principal.Identity != null && principal.Identity.IsAuthenticated)
+                {
+                    return Ok(new AuthResult()
+                    {
+                        Result = true
+                    });
+                }
+
+                return BadRequest(new AuthResult()
+                {
+                    Result = false,
+                    Errors = new List<string>()
+                    {
+                        "Invalid token."
+                    }
+                });
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(new AuthResult()
+                {
+                    Result = false,
+                    Errors = new List<string>()
+                    {
+                        exc.Message
+                    }
+                });
+            }
+            
         }
 
         /// <summary>
@@ -189,7 +276,7 @@ namespace Donmee.WebApi.Controllers
                     new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToUniversalTime().ToString())
                 }),
 
-                Expires = DateTime.Now.AddDays(2),
+                Expires = DateTime.Now.AddDays(4),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
 
@@ -197,6 +284,21 @@ namespace Donmee.WebApi.Controllers
             var jwtToken = jwtTokenHandler.WriteToken(token);
 
             return jwtToken;
+        }
+
+        /// <summary>
+        /// Параметры валидации JWT-токена
+        /// </summary>
+        /// <returns>TokenValidationParameters</returns>
+        private TokenValidationParameters GetValidationParameters()
+        {
+            return new TokenValidationParameters()
+            {
+                ValidateLifetime = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection(key: "JwtConfig:Secret").Value))
+            };
         }
     }
 }

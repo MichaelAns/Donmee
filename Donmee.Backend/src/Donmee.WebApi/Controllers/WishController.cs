@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Donmee.Application.Mappings;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Donmee.WebApi.Controllers
 {
@@ -12,6 +13,7 @@ namespace Donmee.WebApi.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class WishController : ControllerBase
     {
         public WishController(DonmeeDbContext dbContext)
