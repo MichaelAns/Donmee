@@ -5,15 +5,25 @@ namespace Donmee.Persistence
 {
     public class DonmeeDbContext : IdentityDbContext<User>
     {
+        /// <summary>
+        /// Контекст базы данных
+        /// </summary>
+        /// <param name="options"></param>
         public DonmeeDbContext(DbContextOptions options) 
             : base(options)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
+        /// <summary>
+        /// Желания
+        /// </summary>
         public DbSet<Wish> Wish { get; set; }
+
+        /// <summary>
+        /// Транзакции
+        /// </summary>
         public DbSet<Transaction> Transaction { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

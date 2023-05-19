@@ -24,51 +24,60 @@ namespace Donmee.WebApi.Controllers
         private readonly DonmeeDbContext _dbContext;
 
         /// <summary>
-        /// Получить все желания других пользователей определённого типа
+        /// Получить все желания других пользователей (обычные или блиц)
         /// </summary>
         /// <param name="userId">ID запрашивающего пользователя</param>
-        /// <param name="wishType">Тип запрашиваемых желаний</param>
-        /// <returns>Активные желания других пользователей определённого типа</returns>
+        /// <param name="wishType">Тип запрашиваемых желаний - обычные или блиц</param>
+        /// <returns>Активные желания других пользователей (обычные или блиц)</returns>
         [HttpGet]
         [Route("Wishes")]
         public async Task<ActionResult<IEnumerable<Domain.Wish>>> GetWishes(
             [FromQuery] string userId,
             [FromQuery] WishType wishType)
         {
-            // All wishes of other users
-            var w = await _dbContext.Wish.ToListAsync();
-            var wishes = await _dbContext.Transaction
-                .Where(trans =>
-                    trans.UserId != userId &&
-                    trans.TransactionType == TransactionType.Creating)
-                .Select(tr => tr.Wish)
-                .Where(wish =>
-                    wish.WishStatus == WishStatus.Active &&
-                    wish.WishType == wishType)
-                .ToListAsync();
-
-            var domainWishes = new List<Domain.Wish>();
-            foreach (var wish in wishes)
+            try
             {
-                domainWishes.Add(wish.ToDomain());
-            }
+                // All wishes of other users
+                var w = await _dbContext.Wish.ToListAsync();
+                var wishes = await _dbContext.Transaction
+                    .Where(trans =>
+                        trans.UserId != userId &&
+                        trans.TransactionType == TransactionType.Creating)
+                    .Select(tr => tr.Wish)
+                    .Where(wish =>
+                        wish.WishStatus == WishStatus.Active &&
+                        wish.WishType == wishType)
+                    .ToListAsync();
 
-            return domainWishes;
+                var domainWishes = new List<Domain.Wish>();
+                foreach (var wish in wishes)
+                {
+                    domainWishes.Add(wish.ToDomain());
+                }
+
+                return domainWishes;
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc);
+            }            
         }
 
         /// <summary>
-        /// Получить желания запрашивающего пользователя определенного статуса
+        /// Получить все желания запрашивающего пользователя определенного статуса (активные или завершённые)
         /// </summary>
         /// <param name="userId">ID пользователя</param>
-        /// <param name="wishStatus">Статус желание</param>
-        /// <returns></returns>
+        /// <param name="wishStatus">Статус желаний - активные или завершённые</param>
+        /// <returns>Желания запрашивающего пользователя определенного статуса (активные или завершённые)</returns>
         [HttpGet]
         [Route("MyWishes")]
         public async Task<ActionResult<IEnumerable<Domain.Wish>>> GetWishes(
             [FromQuery] string userId,
             [FromQuery] WishStatus wishStatus)
         {
-            var wishes = await _dbContext.Transaction
+            try
+            {
+                var wishes = await _dbContext.Transaction
                     .Where(trans =>
                         trans.UserId == userId &&
                         trans.WishId != null &&
@@ -77,17 +86,22 @@ namespace Donmee.WebApi.Controllers
                     .Where(wish => wish.WishStatus == wishStatus)
                     .ToListAsync();
 
-            var domainWishes = new List<Domain.Wish>();
-            foreach (var wish in wishes)
-            {
-                domainWishes.Add(wish.ToDomain());
-            }
+                var domainWishes = new List<Domain.Wish>();
+                foreach (var wish in wishes)
+                {
+                    domainWishes.Add(wish.ToDomain());
+                }
 
-            return domainWishes;
+                return domainWishes;
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc);
+            }
         }
 
         /// <summary>
-        /// Получить желание по Id
+        /// Получить желание по ID
         /// </summary>
         /// <param name="id">ID желания</param>
         /// <returns>Желание</returns>
@@ -95,9 +109,17 @@ namespace Donmee.WebApi.Controllers
         [Route("Wish")]
         public async Task<ActionResult<Domain.Wish>> GetWish([FromQuery] Guid id)
         {
-            var wish = await _dbContext.Wish
+            try
+            {
+                var wish = await _dbContext.Wish
                     .FirstOrDefaultAsync(wish => wish.Id == id);
-            return wish.ToDomain();
+                return wish.ToDomain();
+            }
+            catch (Exception exc)
+            {
+                return BadRequest(exc);
+            }
+            
         }
     }
 }
