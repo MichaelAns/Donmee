@@ -1,7 +1,6 @@
 ﻿using Donmee.Persistence.Models;
 using Donmee.WebApi.Models;
 using Donmee.WebApi.Models.DTOs;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -31,10 +30,10 @@ namespace Donmee.WebApi.Controllers
         private readonly IConfiguration _configuration;
 
         /// <summary>
-        /// Регистрация
+        /// Регистрация пользователя
         /// </summary>
-        /// <param name="requestUser">Пользователь</param>
-        /// <returns>True, если пользователь успешно зарегистрировался, false - иначе</returns>
+        /// <param name="requestUser">Данные пользователя для регистрации</param>
+        /// <returns>AuthResult: true, если пользователь успешно зарегистрировался, false - иначе</returns>
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] UserRegistrationDto requestUser)
@@ -115,11 +114,11 @@ namespace Donmee.WebApi.Controllers
         }
 
         /// <summary>
-        /// Вход
+        /// Вход пользователя
         /// </summary>
-        /// <param name="loginRequest">Почта и пароль</param>
-        /// <returns>Jwt-токен и ID пользователя, если вход выполнен успешно</returns>
-        [HttpPost]
+        /// <param name="loginRequest">Данные пользователя для входа</param>
+        /// <returns>AuthResult: Jwt-токен и ID пользователя, если вход выполнен успешно</returns>
+        [HttpGet]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] UserLoginDto loginRequest)
         {
