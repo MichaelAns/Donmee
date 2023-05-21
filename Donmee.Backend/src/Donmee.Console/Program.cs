@@ -66,7 +66,8 @@ class Db
             CurrentAmount = 100,
             EndDate = new DateTime(2023, 12, 25),
             WishType = WishType.Common,
-            Goal = 10000
+            Goal = 10000,
+            ImagePath = ""
         };
         Wish wish_2 = new Wish
         {
@@ -76,7 +77,8 @@ class Db
             CurrentAmount = 100,
             EndDate = new DateTime(2023, 12, 25),
             WishType = WishType.Common,
-            Goal = 10000
+            Goal = 10000,
+            ImagePath = ""
         };
         Wish wish_3 = new Wish
         {
@@ -85,7 +87,8 @@ class Db
             CurrentAmount = 50,
             EndDate = new DateTime(2023, 12, 25),
             WishType = WishType.Blitz,
-            Goal = 100
+            Goal = 100,
+            ImagePath = ""
         };
         Wish wish_4 = new Wish
         {
@@ -93,7 +96,8 @@ class Db
             CurrentAmount = 50,
             EndDate = new DateTime(2023, 12, 25),
             WishType = WishType.Blitz,
-            Goal = 100
+            Goal = 100,
+            ImagePath = ""
         };
         Wish wish_5 = new Wish
         {
@@ -101,7 +105,8 @@ class Db
             CurrentAmount = 50,
             EndDate = new DateTime(2023, 12, 25),
             WishType = WishType.Blitz,
-            Goal = 100
+            Goal = 100,
+            ImagePath = ""
         };
 
         dbContext.Set<Transaction>().AddRange(
