@@ -59,7 +59,7 @@ namespace Donmee.WebApi.Controllers
             }
             catch (Exception exc)
             {
-                return BadRequest(exc);
+                return BadRequest(exc.Message);
             }            
         }
 
@@ -96,7 +96,7 @@ namespace Donmee.WebApi.Controllers
             }
             catch (Exception exc)
             {
-                return BadRequest(exc);
+                return BadRequest(exc.Message);
             }
         }
 
@@ -117,7 +117,7 @@ namespace Donmee.WebApi.Controllers
             }
             catch (Exception exc)
             {
-                return BadRequest(exc);
+                return BadRequest(exc.Message);
             }
             
         }
