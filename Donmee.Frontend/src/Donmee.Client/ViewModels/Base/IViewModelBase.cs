@@ -3,6 +3,9 @@ using Donmee.Client.Services.Settings;
 
 namespace Donmee.Client.ViewModels.Base
 {
+    /// <summary>
+    /// Базовая ViewModel
+    /// </summary>
     public interface IViewModelBase
     {
         public INavigationService NavigationService { get; }

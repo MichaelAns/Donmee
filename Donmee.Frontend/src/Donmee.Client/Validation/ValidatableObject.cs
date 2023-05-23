@@ -1,5 +1,9 @@
 ﻿namespace Donmee.Client.Validation
 {
+    /// <summary>
+    /// Отслеживаемый объект, который нуждается в валидации
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ValidatableObject<T> : ObservableObject, IValidity
     {
         private IEnumerable<string> _errors;

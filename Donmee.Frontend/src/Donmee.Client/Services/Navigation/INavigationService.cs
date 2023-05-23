@@ -1,5 +1,8 @@
 ﻿namespace Donmee.Client.Services.Navigation
 {
+    /// <summary>
+    /// Навигация по оболочке
+    /// </summary>
     public interface INavigationService
     {
         public Task InitializeAsync();

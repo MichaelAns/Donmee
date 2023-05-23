@@ -3,6 +3,9 @@ using Microsoft.Extensions.Localization;
 
 namespace Donmee.Client.Localization
 {
+    /// <summary>
+    /// Локализация приложения
+    /// </summary>
     [ContentProperty(nameof(Key))]
     internal class LocalizeExtension : IMarkupExtension
     {

@@ -1,4 +1,5 @@
-﻿using Donmee.Persistence;
+﻿using Donmee.Application.Mappings;
+using Donmee.Persistence;
 using Donmee.Persistence.Models;
 using Donmee.Persistence.Models.Enums;
 using Donmee.WebApi.Models;
@@ -187,6 +188,27 @@ namespace Donmee.WebApi.Controllers
                     }
                 });
 
+            }
+        }
+
+        /// <summary>
+        /// Информация о пользователе по Id
+        /// </summary>
+        /// <param name="userId">Id пользователя</param>
+        /// <returns>Domain.User</returns>
+        [HttpGet]
+        [Route("User")]
+        public async Task<ActionResult<Domain.User>> GetUser(
+            [FromQuery] string userId)
+        {
+            try
+            {
+                Domain.User user = _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId).Result.ToDomain();
+                return user;
+            }
+            catch (Exception exc)
+            {
+                return null;
             }
         }
     }
