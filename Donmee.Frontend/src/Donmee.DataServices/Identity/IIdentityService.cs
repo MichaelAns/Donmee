@@ -1,8 +1,11 @@
-﻿namespace Donmee.DataServices.Identity
+﻿using Donmee.Domain.DTOs;
+using Donmee.Domain.RequestResults;
+
+namespace Donmee.DataServices.Identity
 {
     public interface IIdentityService
     {
-        public Task<string> Identity(string email, string password);
-        public Task<Donmee.Domain.User> SignUp(Donmee.Domain.User user);
+        public Task<AuthResult> Identity(UserLoginDto user);
+        public Task<AuthResult> SignUp(UserRegistrationDto user);
     }
 }

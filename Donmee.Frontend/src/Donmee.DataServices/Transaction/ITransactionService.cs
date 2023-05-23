@@ -1,9 +1,11 @@
-﻿namespace Donmee.DataServices.Transaction
+﻿using Donmee.Domain.RequestResults;
+
+namespace Donmee.DataServices.Transaction
 {
     public interface ITransactionService
     {
-        public Task ReplenishmentTransaction(Guid userId, int money);
-        public Task CreatingTransaction(Guid userId, Donmee.Domain.Wish wish);
-        public Task DonateTransaction(Guid userId, Donmee.Domain.Wish wish, int money);
+        public Task<TransactionResult> ReplenishmentTransaction(string userId, int money);
+        public Task<TransactionResult> CreatingTransaction(string userId, Donmee.Domain.Wish wish);
+        public Task<TransactionResult> DonateTransaction(string userId, Guid wishId, int money);
     }
 }
