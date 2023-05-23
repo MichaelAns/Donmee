@@ -1,5 +1,21 @@
 var searchData=
 [
-  ['email_0',['Email',['../class_donmee_1_1_web_api_1_1_models_1_1_d_t_os_1_1_user_login_dto.html#adaf6521df514e58e7fa1d9c6f9dd611c',1,'Donmee.WebApi.Models.DTOs.UserLoginDto.Email()'],['../class_donmee_1_1_web_api_1_1_models_1_1_d_t_os_1_1_user_registration_dto.html#a2901694931ba323c5e63aebbf2775000',1,'Donmee.WebApi.Models.DTOs.UserRegistrationDto.Email()']]],
-  ['errors_1',['Errors',['../class_donmee_1_1_web_api_1_1_models_1_1_auth_result.html#a9324322bd907416bad05d9fd870c0504',1,'Donmee.WebApi.Models.AuthResult.Errors()'],['../class_donmee_1_1_web_api_1_1_models_1_1_transaction_result.html#a278269e736e3a3ff0c4167373725f14a',1,'Donmee.WebApi.Models.TransactionResult.Errors()']]]
+  ['application_0',['Application',['../namespace_donmee_1_1_application.html',1,'Donmee']]],
+  ['configurations_1',['Configurations',['../namespace_donmee_1_1_web_api_1_1_configurations.html',1,'Donmee::WebApi']]],
+  ['controllers_2',['Controllers',['../namespace_donmee_1_1_web_api_1_1_controllers.html',1,'Donmee::WebApi']]],
+  ['date_3',['Date',['../class_donmee_1_1_persistence_1_1_models_1_1_transaction.html#a767174c85963ae5109324a159646c532',1,'Donmee::Persistence::Models::Transaction']]],
+  ['db_4',['Db',['../class_db.html',1,'']]],
+  ['dependencyinjection_5',['DependencyInjection',['../class_donmee_1_1_persistence_1_1_dependency_injection.html',1,'Donmee::Persistence']]],
+  ['description_6',['Description',['../class_donmee_1_1_persistence_1_1_models_1_1_wish.html#a31d9bab20dadbd0c6dff5f81577c43a0',1,'Donmee::Persistence::Models::Wish']]],
+  ['domain_7',['Domain',['../namespace_donmee_1_1_domain.html',1,'Donmee']]],
+  ['donate_8',['Donate',['../class_donmee_1_1_web_api_1_1_controllers_1_1_transaction_controller.html#a8a719a46611091503146480193a6e99c',1,'Donmee.WebApi.Controllers.TransactionController.Donate()'],['../namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a4f8fe4cd0f09471f341d9a725577042aa0584e445d656b83b431227bb80ff0c30',1,'Donmee.Persistence.Models.Enums.Donate()']]],
+  ['donmee_9',['Donmee',['../namespace_donmee.html',1,'']]],
+  ['donmeedbcontext_10',['DonmeeDbContext',['../class_donmee_1_1_persistence_1_1_donmee_db_context.html',1,'Donmee::Persistence']]],
+  ['dtos_11',['DTOs',['../namespace_donmee_1_1_web_api_1_1_models_1_1_d_t_os.html',1,'Donmee::WebApi::Models']]],
+  ['entityconfigurations_12',['EntityConfigurations',['../namespace_donmee_1_1_persistence_1_1_entity_configurations.html',1,'Donmee::Persistence']]],
+  ['enums_13',['Enums',['../namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html',1,'Donmee::Persistence::Models']]],
+  ['mappings_14',['Mappings',['../namespace_donmee_1_1_application_1_1_mappings.html',1,'Donmee::Application']]],
+  ['models_15',['Models',['../namespace_donmee_1_1_persistence_1_1_models.html',1,'Donmee.Persistence.Models'],['../namespace_donmee_1_1_web_api_1_1_models.html',1,'Donmee.WebApi.Models']]],
+  ['persistence_16',['Persistence',['../namespace_donmee_1_1_persistence.html',1,'Donmee']]],
+  ['webapi_17',['WebApi',['../namespace_donmee_1_1_web_api.html',1,'Donmee']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['secondname_0',['SecondName',['../class_donmee_1_1_web_api_1_1_models_1_1_d_t_os_1_1_user_registration_dto.html#a653d0359a60db0c11975daea0fb41c51',1,'Donmee::WebApi::Models::DTOs::UserRegistrationDto']]],
-  ['secret_1',['Secret',['../class_donmee_1_1_web_api_1_1_configurations_1_1_jwt_config.html#a8c61c315dba18b23fe5e7e4c2927bb48',1,'Donmee::WebApi::Configurations::JwtConfig']]]
+  ['goal_0',['Goal',['../class_donmee_1_1_persistence_1_1_models_1_1_wish.html#aafd7bfc0b13f76b6836e92115b1f3da4',1,'Donmee::Persistence::Models::Wish']]]
 ];

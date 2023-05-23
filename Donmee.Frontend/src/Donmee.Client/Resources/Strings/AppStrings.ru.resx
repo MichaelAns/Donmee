@@ -228,7 +228,7 @@
   <data name="RegSecondName" xml:space="preserve">
     <value>Введите фамилию:</value>
   </data>
-  <data name="WisheTitle" xml:space="preserve">
+  <data name="WishesTitle" xml:space="preserve">
     <value>ЖЕЛАНИЯ</value>
   </data>
 </root>

@@ -5,14 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>API: C:/Users/Borov/source/repos/Donmee/Donmee.Backend/src/Donmee.WebApi/Controllers/WishController.cs Source File</title>
+<title>Donmee.BackEnd: C:/Users/Borov/source/repos/Donmee/Donmee.Backend/src/Donmee.WebApi/Controllers/WishController.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">API
+   <div id="projectname">Donmee.BackEnd
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('_wish_controller_8cs_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,104 +67,139 @@ $(document).ready(function(){initNavTree('_wish_controller_8cs_source.html','');
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b52431717783e0ae7a0911f0d1b2984c.html">Donmee.WebApi</a></li><li class="navelem"><a class="el" href="dir_d0d196ef47e2f6c1a1429bf2322bda10.html">Controllers</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">WishController.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>Donmee.Persistence;</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>Donmee.Persistence.Models.Enums;</div>
+<a href="_wish_controller_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span><a class="code hl_namespace" href="namespace_donmee_1_1_persistence.html">Donmee.Persistence</a>;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span><a class="code hl_namespace" href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html">Donmee.Persistence.Models.Enums</a>;</div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>Microsoft.AspNetCore.Http;</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>Microsoft.AspNetCore.Mvc;</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span>Microsoft.EntityFrameworkCore;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span>Donmee.Application.Mappings;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_donmee_1_1_web_api_1_1_controllers.html">Donmee.WebApi.Controllers</a></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    [ApiController]</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">   15</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">WishController</a> : ControllerBase</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keyword">public</span> <a class="code hl_class" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">WishController</a>(DonmeeDbContext dbContext)</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            _dbContext = dbContext;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">private</span> readonly DonmeeDbContext _dbContext;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span><a class="code hl_namespace" href="namespace_donmee_1_1_application_1_1_mappings.html">Donmee.Application.Mappings</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>Microsoft.AspNetCore.Authorization;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_donmee_1_1_web_api_1_1_controllers.html">Donmee.WebApi.Controllers</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    [ApiController]</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    [Authorize]</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">   17</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">WishController</a> : ControllerBase</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a097cea863d6181665ecba10f94304d34">   19</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a097cea863d6181665ecba10f94304d34">WishController</a>(<a class="code hl_class" href="class_donmee_1_1_persistence_1_1_donmee_db_context.html">DonmeeDbContext</a> <a class="code hl_variable" href="_donmee_8_console_2_program_8cs.html#abdd06899f0569767b597212006369eb7">dbContext</a>)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            _dbContext = <a class="code hl_variable" href="_donmee_8_console_2_program_8cs.html#abdd06899f0569767b597212006369eb7">dbContext</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        }</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        [HttpGet]</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        [Route(<span class="stringliteral">&quot;Wishes&quot;</span>)]</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a7164076ff68535da926a333bdd8247c5">   32</a></span>        <span class="keyword">public</span> async Task&lt;ActionResult&lt;IEnumerable&lt;Domain.Wish&gt;&gt;&gt; <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a7164076ff68535da926a333bdd8247c5">GetWishes</a>(</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            [FromQuery] <span class="keywordtype">string</span> userId,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            [FromQuery] WishType wishType)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="comment">// All wishes of other users</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            var w = await _dbContext.Wish.ToListAsync();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            var wishes = await _dbContext.Transaction</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                .Where(trans =&gt;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                    trans.UserId != userId &amp;&amp;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                    trans.TransactionType == TransactionType.Creating)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                .Select(tr =&gt; tr.Wish)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                .Where(wish =&gt;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                    wish.WishStatus == WishStatus.Active &amp;&amp;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                    wish.WishType == wishType)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                .ToListAsync();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            var domainWishes = <span class="keyword">new</span> List&lt;Domain.Wish&gt;();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">foreach</span> (var wish <span class="keywordflow">in</span> wishes)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                domainWishes.Add(wish.ToDomain());</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">return</span> domainWishes;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        [HttpGet]</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        [Route(<span class="stringliteral">&quot;MyWishes&quot;</span>)]</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a1769a4aaf4689dfcd3bda57668a0f040">   65</a></span>        <span class="keyword">public</span> async Task&lt;ActionResult&lt;IEnumerable&lt;Domain.Wish&gt;&gt;&gt; <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a1769a4aaf4689dfcd3bda57668a0f040">GetWishes</a>(</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            [FromQuery] <span class="keywordtype">string</span> userId,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            [FromQuery] WishStatus wishStatus)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            var wishes = await _dbContext.Transaction</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                    .Where(trans =&gt;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                        trans.UserId == userId &amp;&amp;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                        trans.WishId != <span class="keyword">null</span> &amp;&amp;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                        trans.TransactionType == TransactionType.Creating)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    .Select(tr =&gt; tr.Wish)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                    .Where(wish =&gt; wish.WishStatus == wishStatus)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                    .ToListAsync();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            var domainWishes = <span class="keyword">new</span> List&lt;Domain.Wish&gt;();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">foreach</span> (var wish <span class="keywordflow">in</span> wishes)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                domainWishes.Add(wish.ToDomain());</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> domainWishes;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        [HttpGet]</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        [Route(<span class="stringliteral">&quot;Wish&quot;</span>)]</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#afb7f2abed184d7238d1ee3482fa7e142">   94</a></span>        <span class="keyword">public</span> async Task&lt;ActionResult&lt;Domain.Wish&gt;&gt; <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#afb7f2abed184d7238d1ee3482fa7e142">GetWish</a>([FromQuery] Guid <span class="keywordtype">id</span>)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            var wish = await _dbContext.Wish</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                    .FirstOrDefaultAsync(wish =&gt; wish.Id == <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> wish.ToDomain();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
-<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">Donmee.WebApi.Controllers.WishController</a></div><div class="ttdoc">Желания пользователя</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00015">WishController.cs:16</a></div></div>
-<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_a1769a4aaf4689dfcd3bda57668a0f040"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a1769a4aaf4689dfcd3bda57668a0f040">Donmee.WebApi.Controllers.WishController.GetWishes</a></div><div class="ttdeci">async Task&lt; ActionResult&lt; IEnumerable&lt; Domain.Wish &gt; &gt; &gt; GetWishes([FromQuery] string userId, [FromQuery] WishStatus wishStatus)</div><div class="ttdoc">Получить желания запрашивающего пользователя определенного статуса</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00065">WishController.cs:65</a></div></div>
-<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_a7164076ff68535da926a333bdd8247c5"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a7164076ff68535da926a333bdd8247c5">Donmee.WebApi.Controllers.WishController.GetWishes</a></div><div class="ttdeci">async Task&lt; ActionResult&lt; IEnumerable&lt; Domain.Wish &gt; &gt; &gt; GetWishes([FromQuery] string userId, [FromQuery] WishType wishType)</div><div class="ttdoc">Получить все желания других пользователей определённого типа</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00032">WishController.cs:32</a></div></div>
-<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_afb7f2abed184d7238d1ee3482fa7e142"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#afb7f2abed184d7238d1ee3482fa7e142">Donmee.WebApi.Controllers.WishController.GetWish</a></div><div class="ttdeci">async Task&lt; ActionResult&lt; Domain.Wish &gt; &gt; GetWish([FromQuery] Guid id)</div><div class="ttdoc">Получить желание по Id.</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00094">WishController.cs:94</a></div></div>
-<div class="ttc" id="anamespace_donmee_1_1_web_api_1_1_controllers_html"><div class="ttname"><a href="namespace_donmee_1_1_web_api_1_1_controllers.html">Donmee.WebApi.Controllers</a></div><div class="ttdef"><b>Definition:</b> <a href="_auth_controller_8cs_source.html#l00012">AuthController.cs:13</a></div></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">private</span> readonly <a class="code hl_class" href="class_donmee_1_1_persistence_1_1_donmee_db_context.html">DonmeeDbContext</a> _dbContext;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        [HttpGet]</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        [Route(<span class="stringliteral">&quot;Wishes&quot;</span>)]</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a7164076ff68535da926a333bdd8247c5">   34</a></span>        <span class="keyword">public</span> async Task&lt;ActionResult&lt;IEnumerable&lt;Domain.<a class="code hl_property" href="class_donmee_1_1_persistence_1_1_donmee_db_context.html#a99420447fa06627745abf4efeb5fdfdb">Wish</a>&gt;&gt;&gt; <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a7164076ff68535da926a333bdd8247c5">GetWishes</a>(</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            [FromQuery] <span class="keywordtype">string</span> userId,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            [FromQuery] <a class="code hl_enumeration" href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a039524ee55640396f395c5d78a175ddb">WishType</a> wishType)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                <span class="comment">// All wishes of other users</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                var w = await _dbContext.Wish.ToListAsync();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                var wishes = await _dbContext.Transaction</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                    .Where(trans =&gt;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                        trans.UserId != userId &amp;&amp;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                        trans.TransactionType == <a class="code hl_enumeration" href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a4f8fe4cd0f09471f341d9a725577042a">TransactionType</a>.Creating)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                    .Select(tr =&gt; tr.Wish)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    .Where(wish =&gt;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                        wish.WishStatus == <a class="code hl_enumeration" href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a8c511deaf97a55f5368e84834ccd3328">WishStatus</a>.Active &amp;&amp;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                        wish.WishType == wishType)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    .ToListAsync();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                var domainWishes = <span class="keyword">new</span> List&lt;Domain.Wish&gt;();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                <span class="keywordflow">foreach</span> (var wish <span class="keywordflow">in</span> wishes)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    domainWishes.Add(wish.ToDomain());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                <span class="keywordflow">return</span> domainWishes;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">catch</span> (Exception exc)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <span class="keywordflow">return</span> BadRequest(exc.Message);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            }            </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        [HttpGet]</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        [Route(<span class="stringliteral">&quot;MyWishes&quot;</span>)]</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a1769a4aaf4689dfcd3bda57668a0f040">   74</a></span>        <span class="keyword">public</span> async Task&lt;ActionResult&lt;IEnumerable&lt;Domain.Wish&gt;&gt;&gt; <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a1769a4aaf4689dfcd3bda57668a0f040">GetWishes</a>(</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            [FromQuery] <span class="keywordtype">string</span> userId,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            [FromQuery] <a class="code hl_enumeration" href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a8c511deaf97a55f5368e84834ccd3328">WishStatus</a> wishStatus)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                var wishes = await _dbContext.Transaction</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    .Where(trans =&gt;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                        trans.UserId == userId &amp;&amp;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                        trans.WishId != <span class="keyword">null</span> &amp;&amp;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                        trans.TransactionType == <a class="code hl_enumeration" href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a4f8fe4cd0f09471f341d9a725577042a">TransactionType</a>.Creating)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    .Select(tr =&gt; tr.Wish)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                    .Where(wish =&gt; wish.WishStatus == wishStatus)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                    .ToListAsync();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                var domainWishes = <span class="keyword">new</span> List&lt;Domain.Wish&gt;();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <span class="keywordflow">foreach</span> (var wish <span class="keywordflow">in</span> wishes)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                    domainWishes.Add(wish.ToDomain());</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                <span class="keywordflow">return</span> domainWishes;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordflow">catch</span> (Exception exc)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">return</span> BadRequest(exc.Message);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        [HttpGet]</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        [Route(<span class="stringliteral">&quot;Wish&quot;</span>)]</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#afb7f2abed184d7238d1ee3482fa7e142">  110</a></span>        <span class="keyword">public</span> async Task&lt;ActionResult&lt;Domain.Wish&gt;&gt; <a class="code hl_function" href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#afb7f2abed184d7238d1ee3482fa7e142">GetWish</a>([FromQuery] Guid <span class="keywordtype">id</span>)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                var wish = await _dbContext.Wish</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    .FirstOrDefaultAsync(wish =&gt; wish.Id == <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                <span class="keywordflow">return</span> wish.ToDomain();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">catch</span> (Exception exc)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <span class="keywordflow">return</span> BadRequest(exc.Message);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+<div class="ttc" id="a_donmee_8_console_2_program_8cs_html_abdd06899f0569767b597212006369eb7"><div class="ttname"><a href="_donmee_8_console_2_program_8cs.html#abdd06899f0569767b597212006369eb7">dbContext</a></div><div class="ttdeci">var dbContext</div><div class="ttdef"><b>Definition:</b> <a href="_donmee_8_console_2_program_8cs_source.html#l00008">Program.cs:8</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_persistence_1_1_donmee_db_context_html"><div class="ttname"><a href="class_donmee_1_1_persistence_1_1_donmee_db_context.html">Donmee.Persistence.DonmeeDbContext</a></div><div class="ttdoc">Контекст базы данных</div><div class="ttdef"><b>Definition:</b> <a href="_donmee_db_context_8cs_source.html#l00009">DonmeeDbContext.cs:10</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_persistence_1_1_donmee_db_context_html_a99420447fa06627745abf4efeb5fdfdb"><div class="ttname"><a href="class_donmee_1_1_persistence_1_1_donmee_db_context.html#a99420447fa06627745abf4efeb5fdfdb">Donmee.Persistence.DonmeeDbContext.Wish</a></div><div class="ttdeci">DbSet&lt; Wish &gt; Wish</div><div class="ttdoc">Желания</div><div class="ttdef"><b>Definition:</b> <a href="_donmee_db_context_8cs_source.html#l00022">DonmeeDbContext.cs:22</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html">Donmee.WebApi.Controllers.WishController</a></div><div class="ttdoc">Желания пользователя</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00017">WishController.cs:18</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_a097cea863d6181665ecba10f94304d34"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a097cea863d6181665ecba10f94304d34">Donmee.WebApi.Controllers.WishController.WishController</a></div><div class="ttdeci">WishController(DonmeeDbContext dbContext)</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00019">WishController.cs:19</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_a1769a4aaf4689dfcd3bda57668a0f040"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a1769a4aaf4689dfcd3bda57668a0f040">Donmee.WebApi.Controllers.WishController.GetWishes</a></div><div class="ttdeci">async Task&lt; ActionResult&lt; IEnumerable&lt; Domain.Wish &gt; &gt; &gt; GetWishes([FromQuery] string userId, [FromQuery] WishStatus wishStatus)</div><div class="ttdoc">Получить все желания запрашивающего пользователя определенного статуса (активные или завершённые)</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00074">WishController.cs:74</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_a7164076ff68535da926a333bdd8247c5"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#a7164076ff68535da926a333bdd8247c5">Donmee.WebApi.Controllers.WishController.GetWishes</a></div><div class="ttdeci">async Task&lt; ActionResult&lt; IEnumerable&lt; Domain.Wish &gt; &gt; &gt; GetWishes([FromQuery] string userId, [FromQuery] WishType wishType)</div><div class="ttdoc">Получить все желания других пользователей (обычные или блиц)</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00034">WishController.cs:34</a></div></div>
+<div class="ttc" id="aclass_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller_html_afb7f2abed184d7238d1ee3482fa7e142"><div class="ttname"><a href="class_donmee_1_1_web_api_1_1_controllers_1_1_wish_controller.html#afb7f2abed184d7238d1ee3482fa7e142">Donmee.WebApi.Controllers.WishController.GetWish</a></div><div class="ttdeci">async Task&lt; ActionResult&lt; Domain.Wish &gt; &gt; GetWish([FromQuery] Guid id)</div><div class="ttdoc">Получить желание по ID.</div><div class="ttdef"><b>Definition:</b> <a href="_wish_controller_8cs_source.html#l00110">WishController.cs:110</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_application_1_1_mappings_html"><div class="ttname"><a href="namespace_donmee_1_1_application_1_1_mappings.html">Donmee.Application.Mappings</a></div><div class="ttdef"><b>Definition:</b> <a href="_user_mapper_8cs_source.html#l00001">UserMapper.cs:2</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_persistence_1_1_models_1_1_enums_html"><div class="ttname"><a href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html">Donmee.Persistence.Models.Enums</a></div><div class="ttdef"><b>Definition:</b> <a href="_transaction_type_8cs_source.html#l00001">TransactionType.cs:2</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_persistence_1_1_models_1_1_enums_html_a039524ee55640396f395c5d78a175ddb"><div class="ttname"><a href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a039524ee55640396f395c5d78a175ddb">Donmee.Persistence.Models.Enums.WishType</a></div><div class="ttdeci">WishType</div><div class="ttdoc">Type of a wish.</div><div class="ttdef"><b>Definition:</b> <a href="_wish_type_8cs_source.html#l00006">WishType.cs:7</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_persistence_1_1_models_1_1_enums_html_a4f8fe4cd0f09471f341d9a725577042a"><div class="ttname"><a href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a4f8fe4cd0f09471f341d9a725577042a">Donmee.Persistence.Models.Enums.TransactionType</a></div><div class="ttdeci">TransactionType</div><div class="ttdoc">Type of a transaction.</div><div class="ttdef"><b>Definition:</b> <a href="_transaction_type_8cs_source.html#l00006">TransactionType.cs:7</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_persistence_1_1_models_1_1_enums_html_a8c511deaf97a55f5368e84834ccd3328"><div class="ttname"><a href="namespace_donmee_1_1_persistence_1_1_models_1_1_enums.html#a8c511deaf97a55f5368e84834ccd3328">Donmee.Persistence.Models.Enums.WishStatus</a></div><div class="ttdeci">WishStatus</div><div class="ttdef"><b>Definition:</b> <a href="_wish_status_8cs_source.html#l00003">WishStatus.cs:4</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_persistence_html"><div class="ttname"><a href="namespace_donmee_1_1_persistence.html">Donmee.Persistence</a></div><div class="ttdef"><b>Definition:</b> <a href="_dependency_injection_8cs_source.html#l00004">DependencyInjection.cs:5</a></div></div>
+<div class="ttc" id="anamespace_donmee_1_1_web_api_1_1_controllers_html"><div class="ttname"><a href="namespace_donmee_1_1_web_api_1_1_controllers.html">Donmee.WebApi.Controllers</a></div><div class="ttdef"><b>Definition:</b> <a href="_auth_controller_8cs_source.html#l00013">AuthController.cs:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b52431717783e0ae7a0911f0d1b2984c.html">Donmee.WebApi</a></li><li class="navelem"><a class="el" href="dir_d0d196ef47e2f6c1a1429bf2322bda10.html">Controllers</a></li><li class="navelem"><b>WishController.cs</b></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
 </body>
 </html>
