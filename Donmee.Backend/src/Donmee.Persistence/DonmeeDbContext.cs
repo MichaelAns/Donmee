@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Donmee.Persistence
 {
+    /// <summary>
+    /// Контекст базы данных
+    /// </summary>
     public class DonmeeDbContext : IdentityDbContext<User>
     {
-        /// <summary>
-        /// Контекст базы данных
-        /// </summary>
-        /// <param name="options"></param>
+        
         public DonmeeDbContext(DbContextOptions options) 
             : base(options)
         {
@@ -26,6 +26,10 @@ namespace Donmee.Persistence
         /// </summary>
         public DbSet<Transaction> Transaction { get; set; }
 
+        /// <summary>
+        /// Применение конфигураций
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new UserConfiguration());

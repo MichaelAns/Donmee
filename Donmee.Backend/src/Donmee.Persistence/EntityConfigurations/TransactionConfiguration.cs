@@ -2,6 +2,9 @@
 
 namespace Donmee.Persistence.EntityConfigurations
 {
+    /// <summary>
+    /// Конфигурация для транзакций
+    /// </summary>
     internal class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
