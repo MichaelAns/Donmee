@@ -14,7 +14,7 @@ namespace Donmee.DataServices.Wish
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                string endPoint = $"https://localhost:7287/api/Wish/Wish?wishId={wishId}";
+                string endPoint = $"https://localhost:7287/api/Wish/Wish?id={wishId}";
 
                 var response = await client.GetAsync(endPoint);
                 var wish = (Domain.Wish)await response.Content.ReadFromJsonAsync(typeof(Domain.Wish));
@@ -31,7 +31,7 @@ namespace Donmee.DataServices.Wish
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                string endPoint = $"https://localhost:7287/api/Wishes/Wish?userId={userId}&type={type}";
+                string endPoint = $"https://localhost:7287/api/Wish/Wishes?userId={userId}&type={type}";
 
                 var response = await client.GetAsync(endPoint);
                 var wishes = (IEnumerable<Domain.Wish>)await response.Content.ReadFromJsonAsync(typeof(IEnumerable<Domain.Wish>));
@@ -39,7 +39,7 @@ namespace Donmee.DataServices.Wish
             }
         }
 
-        public async Task<IEnumerable<Domain.Wish>> GetWishesAsync(
+        public async Task<IEnumerable<Domain.Wish>> GetMyWishesAsync(
             string userId, 
             WishStatus wishStatus, 
             string token)
@@ -48,7 +48,7 @@ namespace Donmee.DataServices.Wish
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                string endPoint = $"https://localhost:7287/api/Wishes/Wish?userId={userId}&wishStatus={wishStatus}";
+                string endPoint = $"https://localhost:7287/api/Wish/MyWishes?userId={userId}&wishStatus={wishStatus}";
 
                 var response = await client.GetAsync(endPoint);
                 var wishes = (IEnumerable<Domain.Wish>)await response.Content.ReadFromJsonAsync(typeof(IEnumerable<Domain.Wish>));

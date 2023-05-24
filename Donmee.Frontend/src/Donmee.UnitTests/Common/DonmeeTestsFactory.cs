@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Donmee.UnitTests.Common
 {
+    /// <summary>
+    /// Фабрика тестов
+    /// </summary>
     public static class DonmeeTestsFactory
     {
         public static string UserId_1 = "6F0E85F5-50D9-4E4B-AA73-6454815D6F1A";
@@ -15,7 +18,7 @@ namespace Donmee.UnitTests.Common
         public static Guid Transaction_2 = Guid.NewGuid();
         public static Guid Transaction_3 = Guid.NewGuid();
 
-        public static Guid Wish_1 = Guid.NewGuid();
+        public static Guid Wish_1 = Guid.Parse("6F0E85F5-50D9-4E4B-AA73-6454815D6F1A");
         public static Guid Wish_2 = Guid.NewGuid();
         public static Guid Wish_3 = Guid.NewGuid();
         public static async Task UpdateDatabase()

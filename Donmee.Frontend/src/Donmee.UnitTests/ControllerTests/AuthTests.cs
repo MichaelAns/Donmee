@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Donmee.UnitTests.ControllerTests
 {
+    /// <summary>
+    /// Тестирование регистрации и авторизации
+    /// </summary>
     public class AuthTests
     {
         [Fact]
@@ -30,7 +33,7 @@ namespace Donmee.UnitTests.ControllerTests
 
             // Act
             var response = await httpClient.PostAsync(endPoint, content);
-            var authResult = (AuthResult) await response.Content.ReadFromJsonAsync(typeof(AuthResult));
+            var authResult = (AuthResult)await response.Content.ReadFromJsonAsync(typeof(AuthResult));
 
             // Assert
             authResult.Result.ShouldBeTrue();

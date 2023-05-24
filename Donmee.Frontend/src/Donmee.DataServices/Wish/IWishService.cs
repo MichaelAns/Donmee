@@ -9,7 +9,7 @@ namespace Donmee.DataServices.Wish
     {
         public Task<IEnumerable<Donmee.Domain.Wish>> GetWishesAsync(string userId, WishType type, string token);
 
-        public Task<IEnumerable<Donmee.Domain.Wish>> GetWishesAsync(string userId, WishStatus wishStatus, string token);
+        public Task<IEnumerable<Donmee.Domain.Wish>> GetMyWishesAsync(string userId, WishStatus wishStatus, string token);
 
         public Task<Donmee.Domain.Wish> GetWishAsync(Guid wishId, string token);
     }

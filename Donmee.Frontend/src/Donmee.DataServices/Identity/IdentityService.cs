@@ -1,6 +1,7 @@
 ﻿using Donmee.Domain.DTOs;
 using Donmee.Domain.RequestResults;
 using Newtonsoft.Json;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 
@@ -13,9 +14,16 @@ namespace Donmee.DataServices.Identity
             using (var client = new HttpClient())
             {
                 string endPoint = "https://localhost:7287/api/Auth/Login";
-                var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
 
-                var response = await client.PostAsync(endPoint, content);
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    Content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json"),
+                    RequestUri = new Uri(endPoint)
+                };
+
+
+                var response = await client.SendAsync(request).ConfigureAwait(false);
                 var authResult = (AuthResult)await response.Content.ReadFromJsonAsync(typeof(AuthResult));
                 return authResult;
             }
